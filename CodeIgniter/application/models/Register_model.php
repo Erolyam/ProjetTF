@@ -13,21 +13,21 @@
              $this->db->set('email',strip_tags($options['email']));
          if(isset($options['password']))
              $this->db->set('password',strip_tags($pass = hash('sha256', $options['password'])));
-         $this->db->insert("user");
+         $this->db->insert("User");
          return $this->db->insert_id();
      }
 
      function username_exists($username)
      {
          $this->db->where('username',$username);
-         $query = $this->db->get('user');
+         $query = $this->db->get('User');
          return $query->num_rows() > 0;
      }
 
      function email_exists($email)
      {
          $this->db->where('email',$email);
-         $query = $this->db->get('user');
+         $query = $this->db->get('User');
          return $query->num_rows() > 0;
      }
 
