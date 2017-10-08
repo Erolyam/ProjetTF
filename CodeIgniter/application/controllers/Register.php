@@ -8,18 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      public function index()
      {
-     $this->insert();
+        $this->insert();
      }
 
      public function is_form_valid(){
-         $this->form_validation->set_rules('name', 'Name', 'trim|required');
-         $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
-         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|max_length[12]|callback_is_username_not_taken');
-         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
+         $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[45]');
+         $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required|max_length[45]');
+         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|max_length[45]|callback_is_username_not_taken');
+         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[45]');
          $this->form_validation->set_rules('passconf', 'Password Confirmation', 'trim|required|matches[password]');
-         $this->form_validation->set_rules('email', 'Email', 'trim|required|callback_email_regex_check|callback_is_email_not_taken');
-         $this->form_validation->set_rules('age', 'Age', 'required|numeric');
-
+         $this->form_validation->set_rules('email', 'Email', 'trim|required|max_length[45]|callback_email_regex_check|callback_is_email_not_taken');
+         $this->form_validation->set_rules('age', 'Age', 'required|numeric|is_natural');
          return $this->form_validation->run();
      }
 
@@ -55,9 +54,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      {
          if ($this->is_form_valid())
          {
-             $register=$this->register_model->insert_data($_POST);
+             $user_data = array();
+             if(isset($_POST['name']))
+                 $user_data['name']=strip_tags($_POST['name']);
+             if(isset($_POST['lastname']))
+                 $user_data['lastname']=strip_tags($_POST['lastname']);
+             if(isset($_POST['age']))
+                 $user_data['age']=strip_tags($_POST['age']);
+             if(isset($_POST['username']))
+                 $user_data['username']=strip_tags($_POST['username']);
+             if(isset($_POST['email']))
+                 $user_data['email']=strip_tags($_POST['email']);
+             if(isset($_POST['password']))
+                 $user_data['password']=strip_tags($pass = hash('sha256', $_POST['password']));
+
+             if(isset($_FILES['photo'])){
+                 $file_data = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
+                 $user_data['photo']=$file_data;
+             }
+
+             $register=$this->register_model->insert_data($user_data);
              if($register){
-                 $this->session->set_flashdata('msg', 'Utilisateur ajouté correctement');
+                 $this->session->set_flashdata('msg', 'Utilisateur ajouté correctement ');
                  redirect(current_url()); //unset form values after success
                  return;
              }

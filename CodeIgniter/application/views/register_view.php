@@ -10,7 +10,7 @@
                     <strong>Success!</strong> <?php echo $this->session->flashdata('msg'); ?>
                 </div>
             <?php endif; ?>
-        <form action="registerUser" method="post">
+        <form enctype="multipart/form-data" action="registerUser" method="post">
             <div class="form-group row <?php if(strlen(form_error('name'))>0) echo ' has-error'; ?>">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-2">
@@ -93,6 +93,18 @@
                 </div>
                 <div class="col-sm-2">
                     <?php echo form_error('age','<p class="text-danger" style="font-size: small">','</p>');?>
+                </div>
+            </div>
+            <div class="form-group row <?php if(strlen(form_error('photo'))>0) echo ' has-error'; ?>">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-2">
+                    <label for="photo" class="col-form-label">Photo de profil</label>
+                </div>
+                <div class="col-sm-3">
+                    <input type="file" class="form-control" name="photo" id="photo" placeholder="Photo de profil">
+                </div>
+                <div class="col-sm-2">
+                    <?php echo form_error('photo','<p class="text-danger" style="font-size: small">','</p>');?>
                 </div>
             </div>
             <div class="form-group row">

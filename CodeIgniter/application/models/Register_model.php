@@ -1,20 +1,17 @@
 <?php
  class Register_model extends CI_Model {
-     function insert_data($options = array()){
-         if(isset($options['name']))
-             $this->db->set('name',strip_tags($options['name']));
-         if(isset($options['lastname']))
-             $this->db->set('lastname',strip_tags($options['lastname']));
-         if(isset($options['age']))
-             $this->db->set('age',strip_tags($options['age']));
-         if(isset($options['username']))
-             $this->db->set('username',strip_tags($options['username']));
-         if(isset($options['email']))
-             $this->db->set('email',strip_tags($options['email']));
-         if(isset($options['password']))
-             $this->db->set('password',strip_tags($pass = hash('sha256', $options['password'])));
-         $this->db->insert("User");
-         return $this->db->insert_id();
+     function insert_data($user_data){
+        $this->db->set('name',$user_data['name']);
+        $this->db->set('lastname',$user_data['lastname']);
+        $this->db->set('age',$user_data['age']);
+        $this->db->set('username',$user_data['username']);
+        $this->db->set('email',$user_data['email']);
+        $this->db->set('password',$user_data['password']);
+        if(isset($user_data['photo'])){
+            $this->db->set('profile_picture',$user_data['photo']);
+        }
+        $this->db->insert("User");
+        return $this->db->insert_id();
      }
 
      function username_exists($username)
