@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<title>Numéro Number One</title>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/css/MyStyle.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/js/MyJS.css">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/MyStyle.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/MyJS.css">
 	</head>
 	<body>
 	<nav class="navbar navbar-inverse">
