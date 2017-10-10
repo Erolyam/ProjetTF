@@ -60,7 +60,7 @@ $route['Artwork/(:any)'] = 'Artwork/view/$1';
 $route['Artwork'] = 'Artwork/index';
 
 $route['default_controller'] = 'Artwork/index';
-
+$route['registerUser']= 'register/insert';
 
 
 
@@ -72,8 +72,6 @@ $route['default_controller'] = 'Artwork/index';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-$route['registerUser']= 'register/insert';
 
 $route['oeuvre/(:any)']= 'Artwork/byID/$1';
 $route['Oeuvre/(:any)']= 'Artwork/byID/$1';

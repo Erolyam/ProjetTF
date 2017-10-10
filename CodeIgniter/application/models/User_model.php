@@ -1,19 +1,8 @@
 <?php
 	class User_model extends CI_Model{
-		public function register(){
-			// User data array
-			$data = array(
-				'name' => $this->input->post('name'),
-				'email' => $this->input->post('email'),
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'password' => $this->input->post('password'),
-                'rol' => $this->input->post('rol'),
-                'lastname' => $this->input->post('lastname')
-			);
-
+		public function register($user_data){
 			// Insert user
-			return $this->db->insert('user', $data);
+			return $this->db->insert('user', $user_data);
 		}
 
 		// Log user in
@@ -31,24 +20,18 @@
 			}
 		}
 
-		// Check username exists
-		public function check_username_exists($username){
-			$query = $this->db->get_where('user', array('username' => $username));
-			if($query->row_array() == null) {
-				return true;
-			} else {
-				return false;
-			}
+        function check_username_exists($username)
+        {
+            $this->db->where('username',$username);
+            $query = $this->db->get('User');
+            return $query->num_rows() > 0;
+        }
 
-		}/***/
+        function check_email_exists($email)
+        {
+            $this->db->where('email',$email);
+            $query = $this->db->get('User');
+            return $query->num_rows() > 0;
+        }
 
-		// Check email exists
-		public function check_email_exists($email){
-			$query = $this->db->get_where('user', array('email' => $email));
-			if($query->row_array() == null){
-				return true;
-			} else {
-				return false;
-			}
-		}
 	}
