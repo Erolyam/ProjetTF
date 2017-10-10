@@ -3,12 +3,11 @@
 spl_autoload_register(function ( $class ) {
 
     $parts = explode('\\', $class);
-    $root  = __DIR__ . DIRECTORY_SEPARATOR . 'application';
+    $root  = __DIR__ . DIRECTORY_SEPARATOR . 'application'. DIRECTORY_SEPARATOR .'controllers';
 
     if('Test' === $parts[0]) {
 
-        $root = dirname(__DIR__) . DIRECTORY_SEPARATOR .
-                DIRECTORY_SEPARATOR . 'application';
+        $root = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Test';
         array_shift($parts);
     }
 
