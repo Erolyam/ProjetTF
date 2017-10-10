@@ -9,26 +9,26 @@
 	<nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url(); ?>">ciBlog</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>">Numéro Number One</a>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo base_url(); ?>">Home</a></li>
+            <li><a href="<?php echo base_url(); ?>">Accueil</a></li>
             <li><a href="<?php echo base_url(); ?>about">About</a></li>
              <li><a href="<?php echo base_url(); ?>Artwork">Blog</a></li>
-             <li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+             <li><a href="<?php echo base_url(); ?>categories">Catégories</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <?php if(!$this->session->userdata('logged_in')) : ?>
-            <li><a href="<?php echo base_url(); ?>users/login">Login</a></li>
-            <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+            <li><a href="<?php echo base_url(); ?>users/login">Se connecter</a></li>
+            <li><a href="<?php echo base_url(); ?>users/register">Créer un compte</a></li>
           <?php endif; ?>
           <?php if($this->session->userdata('logged_in')) : ?>
 
 
-            <li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
-            <li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
-            <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+            <li><a href="<?php echo base_url(); ?>posts/create">Ajouter une oeuvre</a></li>
+            <li><a href="<?php echo base_url(); ?>categories/create">Créer une catégorie</a></li>
+            <li><a href="<?php echo base_url(); ?>users/logout">Déconnexion</a></li>
               <li ><a href="#" style="color:yellow" ><?php  echo $this->session->userdata('username') ;?></a></li>
           <?php endif; ?>
           </ul>

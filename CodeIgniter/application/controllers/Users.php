@@ -24,7 +24,7 @@
 				// Set message
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
-				redirect('posts');
+				redirect('Artwork');
 			}
 		}
 
@@ -80,7 +80,7 @@
 			$this->session->unset_userdata('username');
 
 			// Set message
-			$this->session->set_flashdata('user_loggedout', 'Vous etes déconnecter');
+			$this->session->set_flashdata('user_loggedout', 'Vous êtes déconnecté');
 
 			redirect('users/login');
 		}
