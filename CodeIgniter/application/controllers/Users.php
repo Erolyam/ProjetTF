@@ -24,7 +24,7 @@
 				// Set message
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
-				redirect('posts');
+				redirect('Artwork');
 			}
 		}
 
