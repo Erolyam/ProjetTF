@@ -2,7 +2,7 @@
 	class User_model extends CI_Model{
 		public function register($user_data){
 			// Insert user
-			return $this->db->insert('user', $user_data);
+			return $this->db->insert('User', $user_data);
 		}
 
 		// Log user in
@@ -11,7 +11,7 @@
 			$this->db->where('username', $username);
 			$this->db->where('password', $password);
 
-			$result = $this->db->get('user');
+			$result = $this->db->get('User');
 
 			if($result->num_rows() == 1){
 				return $result->row(0)->idUser;

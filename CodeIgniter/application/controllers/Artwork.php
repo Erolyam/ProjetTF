@@ -3,7 +3,7 @@
 		public function index($offset = 0){	
 			// Pagination Config	
 			$config['base_url'] = base_url() . 'Artwork/index/';
-			$config['total_rows'] = $this->db->count_all('artwork');
+			$config['total_rows'] = $this->db->count_all('Artwork');
 			$config['per_page'] = 3;
 			$config['uri_segment'] = 3;
 			$config['attributes'] = array('class' => 'pagination-link');
@@ -37,7 +37,7 @@
 			$this->load->view('templates/footer');
 		}
 
-		public function create(){
+		public function add(){
 			// Check login
 		/*	if(!$this->session->userdata('logged_in')){
 				redirect('users/login');
@@ -52,7 +52,7 @@
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('Artwork/create', $data);
+				$this->load->view('Artwork/add', $data);
 				$this->load->view('templates/footer');
 			} else {
 				// Upload Image

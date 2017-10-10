@@ -4,7 +4,7 @@
 	<div class="row">
 		
 		<div class="col-md-9">
-			<small class="post-date">Posted on: <?php echo $post['date']; ?> in <strong><?php echo $post['title']; ?></strong></small><br>
+			<small class="post-date">Posté le : <?php echo $post['date']; ?> dans <strong><?php echo $post['title']; ?></strong></small><br>
 		<?php echo word_limiter($post['description'], 60); ?>
 		<br><br>
 		<p><a class="btn btn-default" href="<?php echo site_url('/Artwork/'.$post['idArtwork']); ?>">Afficher Plus</a></p>
