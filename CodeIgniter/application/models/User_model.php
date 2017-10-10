@@ -13,7 +13,7 @@
 			);
 
 			// Insert user
-			return $this->db->insert('user', $data);
+			return $this->db->insert('User', $data);
 		}
 
 		// Log user in
@@ -22,7 +22,7 @@
 			$this->db->where('username', $username);
 			$this->db->where('password', $password);
 
-			$result = $this->db->get('user');
+			$result = $this->db->get('User');
 
 			if($result->num_rows() == 1){
 				return $result->row(0)->idUser;
@@ -33,7 +33,7 @@
 
 		// Check username exists
 		public function check_username_exists($username){
-			$query = $this->db->get_where('user', array('username' => $username));
+			$query = $this->db->get_where('User', array('username' => $username));
 			if($query->row_array() == null) {
 				return true;
 			} else {
@@ -44,7 +44,7 @@
 
 		// Check email exists
 		public function check_email_exists($email){
-			$query = $this->db->get_where('user', array('email' => $email));
+			$query = $this->db->get_where('User', array('email' => $email));
 			if($query->row_array() == null){
 				return true;
 			} else {

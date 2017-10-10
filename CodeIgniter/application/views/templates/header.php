@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Application Test</title>
+		<title>Numéro Number One</title>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/MyStyle.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/MyJS.css">
@@ -9,14 +9,13 @@
 	<nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url(); ?>">Numéro Number One</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>">Numéro #1</a>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo base_url(); ?>">Accueil</a></li>
-            <li><a href="<?php echo base_url(); ?>about">About</a></li>
-             <li><a href="<?php echo base_url(); ?>Artwork">Blog</a></li>
-             <li><a href="<?php echo base_url(); ?>categories">Catégories</a></li>
+             <li><a href="<?php echo base_url(); ?>Artwork">Gallerie</a></li>
+             <li><a href="<?php echo base_url(); ?>Classement">Classement</a></li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <?php if(!$this->session->userdata('logged_in')) : ?>
