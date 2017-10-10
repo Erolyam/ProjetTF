@@ -29,13 +29,13 @@
 				
 			);
 
-			$this->db->where('id_comment',$id_comment);
+			$this->db->where('idComment',$id_comment);
 			return $this->db->update('Comment', $data);
 		}
 
 		public function delete_comment($id_comment){
 			
-			$this->db->where('id_comment', $id_comment);
+			$this->db->where('idComment', $id_comment);
 			$this->db->delete('Comment');
 			return true;
 		}
