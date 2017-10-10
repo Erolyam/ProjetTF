@@ -37,7 +37,7 @@
 			$this->load->view('templates/footer');
 		}
 
-		public function create(){
+		public function add(){
 			// Check login
 		/*	if(!$this->session->userdata('logged_in')){
 				redirect('users/login');
@@ -52,7 +52,7 @@
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('Artwork/create', $data);
+				$this->load->view('Artwork/add', $data);
 				$this->load->view('templates/footer');
 			} else {
 				// Upload Image
