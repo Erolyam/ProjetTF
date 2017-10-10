@@ -64,7 +64,7 @@
                 $this->user_model->register($user_data);
 
 				// Set message
-				$this->session->set_flashdata('user_registered', 'Utilisateur '.$user_data['username'].'ajouté correctement');
+				$this->session->set_flashdata('user_registered', 'Utilisateur '.$user_data['username'].' ajouté correctement');
 
 				redirect('Artwork');
 			}

@@ -13,7 +13,7 @@
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
-             <li><a href="<?php echo base_url(); ?>Artwork">Gallerie</a></li>
+             <li><a href="<?php echo base_url(); ?>Artwork">Galerie</a></li>
              <li><a href="<?php echo base_url(); ?>Classement">Classement</a></li>
 
           </ul>

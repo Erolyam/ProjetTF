@@ -4,7 +4,7 @@
 
 
 
-<small class="post-date">Ajouté Le: <?php echo $post['date']; ?></small><br>
+<small class="post-date">Posté le: <?php echo $post['date']; ?></small><br>
 
 <div class="post-body">
 	<?php echo $post['description']; ?>
@@ -19,7 +19,7 @@
 //$this->session->unset_userdata('idUser');
 if($this->session->userdata('idUser')) :
 //if($this->session->userdata('idUser') != $post['owner_idUser'] ) :  ?>
-	<h3>Add Comment</h3>
+	<h3>Ajouter un commentaire</h3>
 <?php echo form_open('comments/create/'.$post['idArtwork']); ?>
 	
 	<div class="form-group">
@@ -35,7 +35,7 @@ echo form_open('/users/login'); ?>
 	</form>
 
 <?php endif ?>
-<h3>Comments</h3>
+<h3>Commentaires postés</h3>
 <?php if(isset($comments)) : ?>
 	<?php foreach($comments as $comment) : ?>
 		<div class="well">
@@ -52,7 +52,7 @@ echo form_open('/users/login'); ?>
         <input type="button"  name="bouton" value="Editer" class="btn btn-warning" onclick="<?php echo $comment['idComment']; ?>.disabled = false; edit.style.display='inline';">
 
                 <?php 	$_SESSION['item'] = $post['idArtwork'];  ?>
-                    <a class="btn btn-success pull-left" href="<?php echo base_url(); ?>/comments/delete/<?php echo $comment['idComment'] ?>">Delete</a>
+                    <a class="btn btn-success pull-left" href="<?php echo base_url(); ?>/comments/delete/<?php echo $comment['idComment'] ?>">Supprimer</a>
             <input type="hidden" name="idArtwork" value="<?php echo $post['idArtwork']; ?>">
                 <input type="submit" value="Modfier" style="display: none;"  name="edit" class="btn btn-danger">
             </form>
