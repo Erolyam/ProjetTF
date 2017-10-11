@@ -1,6 +1,6 @@
 <?php
 	class Users extends CI_Controller{
-		// Register user
+
         public function is_form_valid(){
             $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[45]');
             $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required|max_length[45]');
@@ -14,12 +14,12 @@
 
         public function email_regex_check($email)
         {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-                return true;
-            }else{
+            $v = new \CustomValidation();
+            $email_valid = $v->email_regex_check($email);
+            if(!$email_valid){
                 $this->form_validation->set_message('email_regex_check', 'E-mail invalide');
-                return FALSE;
             }
+            return $email_valid;
         }
 
         public function is_email_not_taken($email){

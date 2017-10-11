@@ -38,11 +38,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Form Validation Class
+ * Form CustomValidation Class
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
- * @category	Validation
+ * @category	CustomValidation
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/form_validation.html
  */
@@ -56,14 +56,14 @@ class CI_Form_validation {
 	protected $CI;
 
 	/**
-	 * Validation data for the current form submission
+	 * CustomValidation data for the current form submission
 	 *
 	 * @var array
 	 */
 	protected $_field_data		= array();
 
 	/**
-	 * Validation rules for the current form
+	 * CustomValidation rules for the current form
 	 *
 	 * @var array
 	 */
@@ -140,13 +140,13 @@ class CI_Form_validation {
 			unset($rules['error_suffix']);
 		}
 
-		// Validation rules can be stored in a config file.
+		// CustomValidation rules can be stored in a config file.
 		$this->_config_rules = $rules;
 
 		// Automatically load the form helper
 		$this->CI->load->helper('form');
 
-		log_message('info', 'Form Validation Class Initialized');
+		log_message('info', 'Form CustomValidation Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -613,7 +613,7 @@ class CI_Form_validation {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Executes the Validation routines
+	 * Executes the CustomValidation routines
 	 *
 	 * @param	array
 	 * @param	array
