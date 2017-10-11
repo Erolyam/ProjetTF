@@ -64,6 +64,10 @@ $route['registerUser']= 'register/insert';
 
 
 
+$route['Administration/index'] = 'Administration/index';
+$route['Administration/(:any)'] = 'Administration/view/$1';
+
+
 
 
 
