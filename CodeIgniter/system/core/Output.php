@@ -406,7 +406,7 @@ class CI_Output {
 	 * timers so the page rendering speed and memory usage can be shown.
 	 *
 	 * Note: All "view" data is automatically put into $this->final_output
-	 *	 by controller class.
+	 *	 by controllers class.
 	 *
 	 * @uses	CI_Output::$final_output
 	 * @param	string	$output	Output data override
@@ -436,7 +436,7 @@ class CI_Output {
 
 		// --------------------------------------------------------------------
 
-		// Do we need to write a cache file? Only if the controller does not have its
+		// Do we need to write a cache file? Only if the controllers does not have its
 		// own _output() method and we are not dealing with a cache file, which we
 		// can determine by the existence of the $CI object above
 		if ($this->cache_expiration > 0 && isset($CI) && ! method_exists($CI, '_output'))
@@ -527,7 +527,7 @@ class CI_Output {
 			}
 		}
 
-		// Does the controller contain a function named _output()?
+		// Does the controllers contain a function named _output()?
 		// If so send the output there.  Otherwise, echo it.
 		if (method_exists($CI, '_output'))
 		{

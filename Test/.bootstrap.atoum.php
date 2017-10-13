@@ -5,7 +5,7 @@ require __DIR__ .
         DIRECTORY_SEPARATOR .
         '..' .
         DIRECTORY_SEPARATOR .
-        'CodeIgniter' .
+        'Source' .
         DIRECTORY_SEPARATOR .
         '.autoloader.atoum.php';
 

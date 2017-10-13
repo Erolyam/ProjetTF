@@ -721,7 +721,7 @@ class CI_Jquery extends CI_Javascript {
 	 * returned content
 	 *
 	 * @param	string	The element to attach the event to
-	 * @param	string	the controller to run the call against
+	 * @param	string	the controllers to run the call against
 	 * @param	string	optional parameters
 	 * @return	string
 	 */

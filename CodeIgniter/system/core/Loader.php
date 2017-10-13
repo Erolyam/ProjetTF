@@ -509,7 +509,7 @@ class CI_Loader {
 	 * Set Variables
 	 *
 	 * Once variables are set they become available within
-	 * the controller class and its "view" files.
+	 * the controllers class and its "view" files.
 	 *
 	 * @param	array|object|string	$vars
 	 *					An associative array or object containing values

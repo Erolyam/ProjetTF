@@ -157,7 +157,7 @@ class CI_Calendar {
 			}
 		}
 
-		// Set the next_prev_url to the controller if required but not defined
+		// Set the next_prev_url to the controllers if required but not defined
 		if ($this->show_next_prev === TRUE && empty($this->next_prev_url))
 		{
 			$this->next_prev_url = $this->CI->config->site_url($this->CI->router->class.'/'.$this->CI->router->method);

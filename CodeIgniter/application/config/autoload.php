@@ -54,7 +54,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'email', 'session');
 |
 | You can also supply an alternative library name to be assigned
-| in the controller:
+| in the controllers:
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
@@ -74,7 +74,7 @@ $autoload['libraries'] = array('form_validation','session', 'pagination', 'custo
 |	$autoload['drivers'] = array('cache');
 |
 | You can also supply an alternative property name to be assigned in
-| the controller:
+| the controllers:
 |
 |	$autoload['drivers'] = array('cache' => 'cch');
 |
@@ -128,7 +128,7 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model', 'second_model');
 |
 | You can also supply an alternative model name to be assigned
-| in the controller:
+| in the controllers:
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */

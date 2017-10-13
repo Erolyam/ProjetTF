@@ -63,7 +63,7 @@ function &DB($params = '', $query_builder_override = NULL)
 		include($file_path);
 
 		// Make packages contain database config files,
-		// given that the controller instance already exists
+		// given that the controllers instance already exists
 		if (class_exists('CI_Controller', FALSE))
 		{
 			foreach (get_instance()->load->get_package_paths() as $path)

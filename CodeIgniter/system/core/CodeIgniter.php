@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	CodeIgniter
- * @category	Front-controller
+ * @category	Front-controllers
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/
  */
@@ -350,11 +350,11 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Load the app controller and local controller
+ *  Load the app controllers and local controllers
  * ------------------------------------------------------
  *
  */
-	// Load the base controller class
+	// Load the base controllers class
 	require_once BASEPATH.'core/Controller.php';
 
 	/**
@@ -386,16 +386,16 @@ if ( ! is_php('5.4'))
  *  leaving us with 3 options here:
  *
  *	1) an empty class name, if we reached the default
- *	   controller, but it didn't exist;
+ *	   controllers, but it didn't exist;
  *	2) a query string which doesn't go through a
  *	   file_exists() check
  *	3) a regular request for a non-existing page
  *
  *  We handle all of these as a 404 error.
  *
- *  Furthermore, none of the methods in the app controller
+ *  Furthermore, none of the methods in the app controllers
  *  or the loader class can be called via the URI, nor can
- *  controller methods that begin with an underscore.
+ *  controllers methods that begin with an underscore.
  */
 
 	$e404 = FALSE;
@@ -509,10 +509,10 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Instantiate the requested controller
+ *  Instantiate the requested controllers
  * ------------------------------------------------------
  */
-	// Mark a start point so we can benchmark the controller
+	// Mark a start point so we can benchmark the controllers
 	$BM->mark('controller_execution_time_( '.$class.' / '.$method.' )_start');
 
 	$CI = new $class();

@@ -79,14 +79,14 @@ class CI_Router {
 	public $method =	'index';
 
 	/**
-	 * Sub-directory that contains the requested controller class
+	 * Sub-directory that contains the requested controllers class
 	 *
 	 * @var	string
 	 */
 	public $directory;
 
 	/**
-	 * Default controller (and method if specific)
+	 * Default controllers (and method if specific)
 	 *
 	 * @var	string
 	 */
@@ -95,7 +95,7 @@ class CI_Router {
 	/**
 	 * Translate URI dashes
 	 *
-	 * Determines whether dashes in controller & method segments
+	 * Determines whether dashes in controllers & method segments
 	 * should be automatically replaced by underscores.
 	 *
 	 * @var	bool
@@ -135,7 +135,7 @@ class CI_Router {
 		// Set any routing overrides that may exist in the main index file
 		if (is_array($routing))
 		{
-			empty($routing['controller']) OR $this->set_class($routing['controller']);
+			empty($routing['controllers']) OR $this->set_class($routing['controllers']);
 			empty($routing['function'])   OR $this->set_method($routing['function']);
 		}
 
@@ -248,7 +248,7 @@ class CI_Router {
 	protected function _set_request($segments = array())
 	{
 		$segments = $this->_validate_request($segments);
-		// If we don't have any segments left - try the default controller;
+		// If we don't have any segments left - try the default controllers;
 		// WARNING: Directories get shifted out of the segments array!
 		if (empty($segments))
 		{
@@ -283,7 +283,7 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set default controller
+	 * Set default controllers
 	 *
 	 * @return	void
 	 */
@@ -315,7 +315,7 @@ class CI_Router {
 			2 => $method
 		);
 
-		log_message('debug', 'No URI present. Default controller set.');
+		log_message('debug', 'No URI present. Default controllers set.');
 	}
 
 	// --------------------------------------------------------------------
@@ -323,7 +323,7 @@ class CI_Router {
 	/**
 	 * Validate request
 	 *
-	 * Attempts validate the URI request and determine the controller path.
+	 * Attempts validate the URI request and determine the controllers path.
 	 *
 	 * @used-by	CI_Router::_set_request()
 	 * @param	array	$segments	URI segments
@@ -334,7 +334,7 @@ class CI_Router {
 		$c = count($segments);
 		$directory_override = isset($this->directory);
 
-		// Loop through our segments and return as soon as a controller
+		// Loop through our segments and return as soon as a controllers
 		// is found or when such a directory doesn't exist
 		while ($c-- > 0)
 		{
@@ -502,7 +502,7 @@ class CI_Router {
 	 * Fetch directory
 	 *
 	 * Feches the sub-directory (if any) that contains the requested
-	 * controller class.
+	 * controllers class.
 	 *
 	 * @deprecated	3.0.0	Read the 'directory' property instead
 	 * @return	string

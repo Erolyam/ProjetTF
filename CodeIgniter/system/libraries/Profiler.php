@@ -403,7 +403,7 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show the controller and function that were called
+	 * Show the controllers and function that were called
 	 *
 	 * @return	string
 	 */
