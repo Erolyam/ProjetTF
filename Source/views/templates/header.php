@@ -36,3 +36,14 @@
     </nav>
 
     <div class="container">
+        <?php
+        session_start();
+        if(isset($_SESSION['message'])){
+            echo '<p class="alert alert-success">'.$_SESSION['message'].'</p>';
+            unset($_SESSION['message']);
+        }
+        if(isset($_SESSION['error'])){
+            echo '<p class="alert alert-warning">'.$_SESSION['error'].'</p>';
+            unset($_SESSION['error']);
+        }
+        ?>

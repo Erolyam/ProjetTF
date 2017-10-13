@@ -13,6 +13,7 @@ class User_controller
 
     // constructeur; pour le test mode $s est false
     function __construct($s) {
+        session_start();
         // connecting to model
         if($s){
             require_once '../models/User_model.php';
@@ -37,13 +38,13 @@ class User_controller
             /*$file_data = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
             $user_data['photo']=$file_data;*/
         }
-
         if($this->is_form_valid($user_data) === FALSE){
-            echo "Error";
+            header("Location: ../views/users/register.php");
+            die();//To finish function after header redirection
         } else {
-            $this->model->register($user_data);
-            echo "OK";
-            //redirect('Artwork');
+            $_SESSION['message'] = 'Utilisateur ajouté correctement';
+            header("Location: ../views/users/register.php");
+            die();//To finish function after header redirection
         }
     }
 
@@ -53,41 +54,42 @@ class User_controller
         $error=0;
         if(!$v->validate_name($user_data['name'])){
             $flag = false;
-            $error=1;
+            $error='Le prenom n\'est pas valide';
         }
         else if(!$v->validate_name($user_data['lastname'])){
             $flag = false;
-            $error=2;
+            $error='Le nom n\'est pas valide';
         }
         else if(!$v->validate_username($user_data['username'])){
             $flag = false;
-            $error=3;
+            $error='Le nom d\'utilisateur n\'est pas valide';
         }
         else if(!$v->validate_password($_POST['password'])){
             $flag = false;
-            $error=4;
+            $error='Le mot de passe n\'est pas valide';
         }
         else if(!$v->validate_matches($user_data['password'],$user_data['passconf'])){
             $flag = false;
-            $error=5;
+            $error='La confirmation du mot de passe n\'est pas correcte';
         }
         else if(!$v->validate_email($user_data['email'])){
             $flag = false;
-            $error=6;
+            $error='Le email n\'est pas valide';
         }
         else if(!$v->validate_age($user_data['age'])){
             $flag = false;
-            $error=7;
+            $error='L\'age n\'est pas valide';
         }
         else if(!$this->is_available_email($user_data['email'])){
             $flag = false;
-            $error=8;
+            $error='Cet email est déjà utilisé';
         }
         else if(!$this->is_available_username($user_data['username'])){
             $flag = false;
-            $error=9;
+            $error='Ce nom d\'utilisateur est déjà utilisé';
         }
-        echo $error;
+        if(!$flag)
+            $_SESSION['error'] = $error;
         return $flag;
     }
 
