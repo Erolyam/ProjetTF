@@ -1027,7 +1027,7 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Email CustomValidation
+	 * Email utilities
 	 *
 	 * @param	string
 	 * @return	bool

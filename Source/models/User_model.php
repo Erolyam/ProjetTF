@@ -5,7 +5,7 @@
  * Date: 13/10/2017
  * Time: 12:18 AM
  */
-
+namespace models;
 class User_model
 {
     private $db;
@@ -14,7 +14,7 @@ class User_model
     function __construct() {
         require_once 'DB_Connection.php';
         // connecting to database
-        $conn = new DB_Connection();
+        $conn = new \models\DB_Connection();
         $this->db = $conn->connect();
         if (!$this->db) {
             die("Connection failed: ".mysqli_connect_error());
@@ -28,7 +28,7 @@ class User_model
 
     public function register($user_data){
         // Insert user
-        $sql = "INSERT INTO user(email, username, password, name, lastname, age, profile_picture) 
+        $sql = "INSERT INTO User(email, username, password, name, lastname, age, profile_picture) 
                          VALUES ('".$user_data[email]."','".$user_data[username].
                                     "','".$user_data[password]."','".$user_data[name].
                                     "','".$user_data[lastname]."',".$user_data[age].",null)";

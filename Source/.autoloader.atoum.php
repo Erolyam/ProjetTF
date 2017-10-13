@@ -3,7 +3,7 @@
 spl_autoload_register(function ( $class ) {
 
     $parts = explode('\\', $class);
-    $root  = __DIR__ . DIRECTORY_SEPARATOR . 'utilities';
+    $root  = __DIR__ ;//. DIRECTORY_SEPARATOR . 'utilities';
 
     if('Test' === $parts[0]) {
 

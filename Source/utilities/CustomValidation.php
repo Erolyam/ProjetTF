@@ -5,6 +5,7 @@
  * Date: 11/10/2017
  * Time: 11:41 PM
  */
+namespace utilities;
 class CustomValidation
 {
     public function __construct ( ) {

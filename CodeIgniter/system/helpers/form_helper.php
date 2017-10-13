@@ -701,7 +701,7 @@ if ( ! function_exists('set_value'))
 	 * Form Value
 	 *
 	 * Grabs a value from the POST array for the specified field so you can
-	 * re-populate an input field or textarea. If Form CustomValidation
+	 * re-populate an input field or textarea. If Form utilities
 	 * is active it retrieves the info from the validation class
 	 *
 	 * @param	string	$field		Field name
@@ -730,7 +730,7 @@ if ( ! function_exists('set_select'))
 	 * Set Select
 	 *
 	 * Let's you set the selected value of a <select> menu via data in the POST array.
-	 * If Form CustomValidation is active it retrieves the info from the validation class
+	 * If Form utilities is active it retrieves the info from the validation class
 	 *
 	 * @param	string
 	 * @param	string
@@ -777,7 +777,7 @@ if ( ! function_exists('set_checkbox'))
 	 * Set Checkbox
 	 *
 	 * Let's you set the selected value of a checkbox via the value in the POST array.
-	 * If Form CustomValidation is active it retrieves the info from the validation class
+	 * If Form utilities is active it retrieves the info from the validation class
 	 *
 	 * @param	string
 	 * @param	string
@@ -829,7 +829,7 @@ if ( ! function_exists('set_radio'))
 	 * Set Radio
 	 *
 	 * Let's you set the selected value of a radio field via info in the POST array.
-	 * If Form CustomValidation is active it retrieves the info from the validation class
+	 * If Form utilities is active it retrieves the info from the validation class
 	 *
 	 * @param	string	$field
 	 * @param	string	$value
@@ -904,7 +904,7 @@ if ( ! function_exists('form_error'))
 if ( ! function_exists('validation_errors'))
 {
 	/**
-	 * CustomValidation Error String
+	 * utilities Error String
 	 *
 	 * Returns all the errors associated with a form submission. This is a helper
 	 * function for the form validation class.
@@ -1026,7 +1026,7 @@ if ( ! function_exists('_attributes_to_string'))
 if ( ! function_exists('_get_validation_object'))
 {
 	/**
-	 * CustomValidation Object
+	 * utilities Object
 	 *
 	 * Determines what the form validation class was instantiated as, fetches
 	 * the object and returns it.

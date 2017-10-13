@@ -5,21 +5,25 @@
  * Date: 13/10/2017
  * Time: 12:42 AM
  */
-
-include '../utilities/CustomValidation.php';
+namespace controllers;
 class User_controller
 {
     private $model;
+    private $validation;
 
-    // constructor
-    function __construct() {
-        require_once '../models/User_model.php';
+    // constructeur; pour le test mode $s est false
+    function __construct($s) {
         // connecting to model
-        $this->model = new User_model();
+        if($s){
+            require_once '../models/User_model.php';
+            require_once '../utilities/CustomValidation.php';
+        }
+        $this->model = new \models\User_model();
+        $this->validation = new \utilities\CustomValidation();
     }
 
     public function register(){
-        $v = new \CustomValidation();
+        $v = $this->validation;
         $user_data = array();
         $user_data['name']=$v->normalize($_POST['name']);
         $user_data['lastname']=$v->normalize($_POST['lastname']);
@@ -44,7 +48,7 @@ class User_controller
     }
 
     public function is_form_valid($user_data){
-        $v = new \CustomValidation();
+        $v = $this->validation;
         $flag = true;
         $error=0;
         if(!$v->validate_name($user_data['name'])){
