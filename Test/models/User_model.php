@@ -10,7 +10,7 @@ namespace models\tests\units;
 use \atoum;
 class User_model extends atoum
 {
-    public function test_username_exists()
+/*    public function test_username_exists()
     {
         $this
             ->if($m = new \models\User_model())
@@ -18,5 +18,5 @@ class User_model extends atoum
             ->boolean($m->check_username_exists('dromeror'))
             ->isIdenticalTo(true);
         return 0;
-    }
+    }*/
 }
