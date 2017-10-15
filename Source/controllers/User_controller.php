@@ -42,6 +42,7 @@ class User_controller
             header("Location: ../views/users/register.php");
             die();//To finish function after header redirection
         } else {
+            $this->model->register($user_data);
             $_SESSION['message'] = 'Utilisateur ajouté correctement';
             header("Location: ../views/users/register.php");
             die();//To finish function after header redirection
