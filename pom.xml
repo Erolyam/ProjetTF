@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>femtost</groupId>
@@ -10,17 +10,43 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <name>webrobot</name>
     <url>http://maven.apache.org</url>
 
-<build>
-<plugins>
-    <plugin>
-   <artifactId>maven-antrun-plugin</artifactId>
-    <version>1.7</version>
-    <configuration>
-        <target>
-            <ant target="build" />
-        </target>
-    </configuration>
-</plugin>
-</plugins>
-</build>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <configuration>
+                    <target>
+                        <ant target="build"/>
+                    </target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>php</executable>
+                    <!-- optional -->
+                    <workingDirectory>.</workingDirectory>
+                    <arguments>
+                        <argument>applis/atoum/atoum.phar</argument>
+                        <argument>-d</argument>
+                        <argument>Test</argument>
+                        <argument>-bf</argument>
+                        <argument>Test/.bootstrap.atoum.php</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
