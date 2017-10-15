@@ -39,11 +39,11 @@
         <?php
         session_start();
         if(isset($_SESSION['message'])){
-            echo '<p class="alert alert-success">'.$_SESSION['message'].'</p>';
+            echo '<p class="alert alert-success" name="message">'.$_SESSION['message'].'</p>';
             unset($_SESSION['message']);
         }
         if(isset($_SESSION['error'])){
-            echo '<p class="alert alert-warning">'.$_SESSION['error'].'</p>';
+            echo '<p class="alert alert-warning" name="error">'.$_SESSION['error'].'</p>';
             unset($_SESSION['error']);
         }
         ?>
