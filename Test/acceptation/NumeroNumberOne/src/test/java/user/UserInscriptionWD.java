@@ -1,10 +1,13 @@
 package user;
 
+import java.io.File;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
+import org.omg.CORBA.Environment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -17,8 +20,33 @@ public class UserInscriptionWD {
 
   @Before
   public void setUp() throws Exception {
-    System.setProperty("webdriver.gecko.driver", "C:\\xampp-full\\htdocs\\ProjetTF\\Test\\Selenium\\drivers\\geckodriver.exe");
-    driver =new FirefoxDriver();    
+    String pathToGeckoDriver = ".." + File.separator + ".." + File.separator + "Selenium" + File.separator + "drivers" + File.separator;
+
+    String osProperty = System.getProperty("os.name").toLowerCase();
+    int archProperty = Integer.parseInt(System.getProperty("sun.arch.data.model"));
+
+    if (osProperty.indexOf("win") >= 0)
+    {
+      pathToGeckoDriver += "geckodriver.exe"; // Windows
+    }
+    else if (osProperty.indexOf("nix") >= 0 || osProperty.indexOf("nux") >= 0 || osProperty.indexOf("aix") > 0 )
+    {
+      if (archProperty == 64)
+      {
+        pathToGeckoDriver += "geckodriver64"; //linux 64 bits
+      }
+      else
+      {
+        pathToGeckoDriver += "geckodriver32"; //linux 32 bits
+      }
+    }
+
+    System.out.println(java.nio.file.Paths.get(pathToGeckoDriver).toAbsolutePath().toString());
+    System.out.println(System.getProperty("user.dir"));
+    System.out.println(pathToGeckoDriver);
+
+    System.setProperty("webdriver.gecko.driver", pathToGeckoDriver);
+    driver = new FirefoxDriver();
     baseUrl = "http://localhost/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
