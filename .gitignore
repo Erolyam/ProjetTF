@@ -2,3 +2,6 @@
 .idea/
 /CodeIgniter/application/config/database.php
 *.iml
+build/
+cache.properties
+target/
