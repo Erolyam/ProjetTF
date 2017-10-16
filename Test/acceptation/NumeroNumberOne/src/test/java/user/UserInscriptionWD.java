@@ -73,11 +73,11 @@ public class UserInscriptionWD {
 
   @After
   public void tearDown() throws Exception {
-    /*driver.quit();
+    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
-    }*/
+    }
   }
 
   private boolean isElementPresent(By by) {
