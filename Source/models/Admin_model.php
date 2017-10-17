@@ -20,16 +20,19 @@ class Admin_model
         $this->db->close();
     }
    
-    
-
-
-
     public function getAllUsers(){
         $sql = "SELECT * FROM User";
         $result = $this->db->query($sql);
         return $result; 
     }
 
+    public function deleteUsers($idUser){
+        $sql = 'DELETE FROM User WHERE idUser ='.$idUser;
+            echo $sql;
+        return $result = $this->db->query($sql);
+
+
+    }
 
 
 

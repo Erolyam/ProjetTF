@@ -26,6 +26,7 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
         <th>Last Name</th>
         <th>Role</th>
         <th>Age</th>
+        <th>Supprimer</th>
       </tr>
     </thead>
     <tbody>
@@ -48,12 +49,30 @@ foreach  ($listUsers as $user_data) {
         <td> <?php echo $user_data['lastname'] ?> </td>
         <td> <?php echo $user_data['rol'] ?> </td>
         <td> <?php echo $user_data['age'] ?> </td>
+        <td>  
+       <form method="post" action="../../actions/deleteUsers.php" >
+        <p>
+         <input type="radio" name="idUser" value=<?php echo $user_data['idUser'];?> /> 
+        </p> 
+        </td>
+        <?php
+            }?>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Supprimer utilisateur</button>
+    </div>
+       
+</form>
       </tr>
-  <?php
-   }?>
+  
     </tbody>
   </table>
 </div>
+
+
+    <?php
+    if (isset($_POST['idUser'])) { echo ($_POST['idUser']);} 
+    ?>
 
 </body>
 </html>
