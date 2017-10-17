@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
         "json:target/test-report/numeroNumberOneCucumber.json",
         "junit:target/test-report/numeroNumberOneCucumber.xml",
         },
-        features = "src/test/specs/resources")
+        features = "src/test/resources")
 public class RunNumeroNumberOneTest {
 }
