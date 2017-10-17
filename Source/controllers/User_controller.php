@@ -16,8 +16,10 @@ class User_controller
         session_start();
         // connecting to model
         if($s){
-            require_once '../models/User_model.php';
-            require_once '../utilities/CustomValidation.php';
+            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\User_model.php';
+            //require_once '../models/User_model.php';
+             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\utilities\CustomValidation.php';
+            //require_once '../utilities/CustomValidation.php';
         }
         $this->model = new \models\User_model();
         $this->validation = new \utilities\CustomValidation();

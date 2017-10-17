@@ -15,7 +15,7 @@
           <ul class="nav navbar-nav">
              <li><a href="Artwork">Galerie</a></li>
              <li><a href="Classement">Classement</a></li>
-             <li><a href="Administration">Administration</a></li>
+             <li><a href="../administration/list_users.php">Administration</a></li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
