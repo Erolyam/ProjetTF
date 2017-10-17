@@ -1,15 +1,11 @@
-package test.specs.java.acceptance;
+package acceptance;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import test.specs.java.acceptance.DriversData;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,7 +16,7 @@ public class UserInscriptionFixture {
 	private String baseUrl;
 
     public UserInscriptionFixture() {
-    	System.setProperty(DriversData.DRIVER, DriversData.DRIVER_LOCATION);
+    	System.setProperty(DriversData.DRIVER, DriversData.getDriverLocation());
         driver = new FirefoxDriver();    
         baseUrl = DriversData.BASE_URL;
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

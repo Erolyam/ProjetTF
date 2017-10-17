@@ -41,10 +41,6 @@ public class UserInscriptionWD {
       }
     }
 
-    System.out.println(java.nio.file.Paths.get(pathToGeckoDriver).toAbsolutePath().toString());
-    System.out.println(System.getProperty("user.dir"));
-    System.out.println(pathToGeckoDriver);
-
     System.setProperty("webdriver.gecko.driver", pathToGeckoDriver);
     driver = new FirefoxDriver();
     baseUrl = "http://localhost/";
