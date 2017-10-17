@@ -27,8 +27,8 @@ class ListingOeuvre_controller
         return $artwork_data;
     }
 
-    public function getArtworksPerCategoryControllers(){
-        $artwork_data = $this->model->getArtworkPerCategory();
+    public function getArtworksPerCategoryControllers($categoryId){
+        $artwork_data = $this->model->getArtworkPerCategory($categoryId);
         $artwork_data = $artwork_data->fetch_all(MYSQL_ASSOC);
         return $artwork_data;
     }
