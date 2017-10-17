@@ -13,10 +13,11 @@
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
-             <li><a href="Artwork">Galerie</a></li>
+             <li><a href="../gallerie/gallerie.php">Galerie</a></li>
              <li><a href="Classement">Classement</a></li>
              <li><a href="../administration/list_users.php">Administration</a></li>
-
+             <li><a href="../oeuvre/listing.php">Liste des oeuvres</a></li>
+             <li><a href="../oeuvre/listingPerCategory.php">Liste des oeuvres par catégorie</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
