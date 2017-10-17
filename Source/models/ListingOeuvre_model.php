@@ -26,13 +26,13 @@ class listingOeuvre_model
         $this->db->close();
     }
 
-    function get_all_artwork(){
+    function getAllArtwork(){
         $sql = "SELECT * FROM Artwork";
         $result = $this->db->query($sql);
         return $result;
     }
 
-    function get_artwork_per_category($categoryId){
+    function getArtworkPerCategory($categoryId){
         $sql = "SELECT * FROM Artwork WHERE category_idCategory='".$categoryId."'";
         $result = $this->db->query($sql);
         return $result;
