@@ -8,11 +8,11 @@ public class DriversData {
 	
 	public static final String DRIVER = "webdriver.gecko.driver";
 	
-	public static final String DRIVER_LOCATION = "C:\\xampp-full\\htdocs\\ProjetTF\\Test\\Selenium\\drivers\\geckodriver.exe";
+	//public static final String DRIVER_LOCATION = "C:\\xampp-full\\htdocs\\ProjetTF\\Test\\Selenium\\drivers\\geckodriver.exe";
 
 	public static String getDriverLocation()
 	{
-		String pathToGeckoDriver = ".." + File.separator + ".." + File.separator + "Selenium" + File.separator + "drivers" + File.separator;
+		String pathToGeckoDriver = "Selenium" + File.separator + "drivers" + File.separator;
 
 		String osProperty = System.getProperty("os.name").toLowerCase();
 		int archProperty = Integer.parseInt(System.getProperty("sun.arch.data.model"));
