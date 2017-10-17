@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sloudiy2
- * Date: 17/10/17
- * Time: 15:16
- */
+require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\controllers\ListingOeuvre_controller.php';
+$a = new \controllers\listingOeuvre_controller(true);
+// Appeler la fonction
+$listOeuvre=$a->getAllArtworksControllers();
