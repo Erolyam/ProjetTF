@@ -3,5 +3,5 @@ require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Sour
 $a = new \controllers\admin_controller(true);
 // Appeler la fonction
 $toDelete=($_GET['idUser']);
-echo $toDelete.' ';
+//echo $toDelete.' ';
 $a->deleteControllers($toDelete);

@@ -4,8 +4,7 @@ class Admin_model
 {
     private $db;
 
-    // constructor
-    function __construct() {
+      function __construct() {
         require_once 'DB_Connection.php';
         // connecting to database
         $conn = new \models\DB_Connection();
@@ -15,11 +14,11 @@ class Admin_model
         }
     }
 
-    // destructor
     function __destruct() {
         $this->db->close();
     }
    
+
     public function getAllUsers(){
         $sql = "SELECT * FROM User";
         $result = $this->db->query($sql);
@@ -30,8 +29,6 @@ class Admin_model
         $sql = 'DELETE FROM User WHERE idUser ='.$idUser;
             echo $sql;
         return $result = $this->db->query($sql);
-
-
     }
 
 

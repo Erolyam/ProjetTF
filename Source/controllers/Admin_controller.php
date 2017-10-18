@@ -64,43 +64,4 @@ class admin_controller
    
         }
 
-
-
-
-
-/*public function view($idArtwork){
-                  $Artwork = array();
-                   $AllComment = array();
-
-                          $Artwork = $this->modelArwork->getArtwork($idArtwork);
-
-                          $Artwork = $Artwork->fetch_all(MYSQLI_ASSOC);       
-           
-                          $Artwork = serialize($Artwork);
-
-                          $AllComment = $this->modelComment->get_comments($idArtwork);
-
-                          $AllComment = $AllComment->fetch_all(MYSQLI_ASSOC);       
-           
-                          $AllComment = serialize($AllComment);
-                    
-
-header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
-//    header('Location: ../views/Artwork/view.php?AllComment = '.urlencode($AllComment));
-            
-        }*/
-
-
-
-
-
-
-   
-    public function is_available_email($email){
-        return !$this->model->check_email_exists($email);
-    }
-
-    public function is_available_username($username){
-        return !$this->model->check_username_exists($username);
-    }
 }
