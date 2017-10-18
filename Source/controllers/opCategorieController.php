@@ -9,8 +9,8 @@ namespace controllers;
 class opCategorieController
 {
     private $model;
-   // private $validation;
-//D:\xampp\htdocs\
+    private $validation;
+    //D:\xampp\htdocs\
     // constructeur; pour le test mode $s est false
     function __construct($s) {
         session_start();

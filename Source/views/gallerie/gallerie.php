@@ -54,9 +54,6 @@
 <div class="container">
     <?php
 
-    use controllers\gallerie_controller;
-    use mageekguy\atoum\php;
-
     if(isset($_SESSION['message'])){
         echo '<p class="alert alert-success" name="message">'.$_SESSION['message'].'</p>';
         unset($_SESSION['message']);
