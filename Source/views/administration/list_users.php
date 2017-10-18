@@ -50,19 +50,17 @@ foreach  ($listUsers as $user_data) {
         <td> <?php echo $user_data['rol'] ?> </td>
         <td> <?php echo $user_data['age'] ?> </td>
         <td>  
-       <form method="post" action="../../actions/deleteUsers.php" >
         <p>
-         <input type="radio" name="idUser" value=<?php echo $user_data['idUser'];?> /> 
+          <a href="../../actions/deleteUsers.php?idUser=<?php echo $user_data['idUser']?>" class="btn btn-primary btn-block">Supprimer utilisateur</a>
         </p> 
+
+
         </td>
         <?php
             }?>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block">Supprimer utilisateur</button>
-    </div>
-       
-</form>
+    
+      
       </tr>
   
     </tbody>

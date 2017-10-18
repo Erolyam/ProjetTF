@@ -58,13 +58,10 @@ class admin_controller
         //$user_data = $this->model->getAllUsers();
         echo $toDelete;
         $this->model->deleteUsers($toDelete);
-        header("Location: ../views/administration/list_users.php");
-       //$user_data = serialize($user_data);
+                     
 
-                    
-
-        //header('Location: ../administration/list_users.php?envoiInfo='.urlencode($user_data));
-//    header('Location: ../views/Artwork/view.php?AllComment = '.urlencode($AllComment));
+        header('Location: ../views/administration/list_users.php');
+   
         }
 
 
