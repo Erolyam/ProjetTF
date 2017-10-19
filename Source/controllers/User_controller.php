@@ -8,6 +8,7 @@
 namespace controllers;
 class User_controller
 {
+     private $modelArwork1 ;
     private $model;
     private $validation;
 
@@ -17,11 +18,13 @@ class User_controller
         // connecting to model
         if($s){
             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\User_model.php';
+             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Artwork_Model1.php';
             //require_once '../models/User_model.php';
              require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\utilities\CustomValidation.php';
             //require_once '../utilities/CustomValidation.php';
         }
         $this->model = new \models\User_model();
+        $this->modelArwork1 = new \models\Artwork_Model1();
         $this->validation = new \utilities\CustomValidation();
     }
 
@@ -95,6 +98,78 @@ class User_controller
             $_SESSION['error'] = $error;
         return $flag;
     }
+ // Log in user
+        public function login(){
+           
+           
+
+
+        $user_Login = array();
+        $password =$_POST['password'];
+        $username =$_POST['username'];
+
+
+              //  $password = hash('sha256',$password );
+                // Get and encrypt the password
+                // Login user
+                $user_Login = $this->model->login($username, $password);
+
+               // echo $idUser;modelArwork
+             $allArtwork = array();
+                if($user_Login->num_rows > 0){
+                       
+       while($row = $user_Login->fetch_row()){
+               $idUser = $row[0];
+        }
+
+ // session_start(); 
+                       $_SESSION['username'] = $username;
+                       $_SESSION['idUser'] = $idUser;
+                       $allArtwork = $this->modelArwork1->getAllArtworks();
+           
+
+
+        $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);       
+           // $gg = $user_Login->num_rows;   
+      $allArtwork = serialize($allArtwork);
+
+//$tab = array("prenom" => "Hugo", "nom" => "ETIEVANT", "age" => 1980 );
+         //<a href="test.php3?str=".addslashes(urlencode(serialize($tab)))."">
+                   // $this->session->set_userdata($user_data);
+
+                    // Set message
+                    //$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+                   // json_encode($result);
+                    
+                    header('Location: ../views/Artwork/index.php?errorMssg='.urlencode($allArtwork));
+
+                 //   while ($row = mysql_fetch_array($result)) {
+                   //       echo("ID : %s  Nom : %s".$row[0].$row[1]);
+                                    }
+                  //} 
+                  
+                  
+              else {
+                    // Set message
+                    //$this->session->set_flashdata('login_failed', 'Login incorrect');
+
+                 //   redirect('users/login');
+                }       
+            
+        }
+
+
+        public function logout(){
+            // Unset user data
+             session_start(); 
+           session_unset('username');
+           session_unset('idUser');
+
+        header('Location: ../views/users/login.php');
+           
+        }
+
+
 
     public function is_available_email($email){
         return !$this->model->check_email_exists($email);
@@ -103,4 +178,5 @@ class User_controller
     public function is_available_username($username){
         return !$this->model->check_username_exists($username);
     }
+   
 }

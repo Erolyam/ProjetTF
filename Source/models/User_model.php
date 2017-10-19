@@ -35,21 +35,20 @@ class User_model
         return $this->db->query($sql);
     }
 
-    // Log user in
-    public function login($username, $password){
-        // Validate
-        /*
-        $this->db->where('username', $username);
-        $this->db->where('password', $password);
+   // Log user in
+        public function login($username, $password){
+            // Validate
+           $sql = "SELECT * FROM user where username ='".$username ."' and password = '".$password."' ";
+         
+            $result = $this->db->query($sql);
 
-        $result = $this->db->get('User');
-
-        if($result->num_rows() == 1){
-            return $result->row(0)->idUser;
-        } else {
-            return false;
-        }*/
-    }
+          //echo  $result;
+            if($result){
+                return $result;
+            } else {
+                return false;
+            }
+        }
 
     function check_username_exists($username)
     {
