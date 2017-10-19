@@ -37,9 +37,7 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
 
             <tr>
                 <td>
-                    <p>
-                        <a href="./artwork_detail.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>"<?php echo $oeuvre_data['title'] ?></a>
-                    </p>
+                    <a href="./artwork_detail.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>"><?php echo $oeuvre_data['title'] ?></a>
                 </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
