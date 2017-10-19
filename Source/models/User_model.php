@@ -29,7 +29,7 @@ class User_model
     public function register($user_data){
         // Insert user
         $sql = "INSERT INTO User(email, username, password, name, lastname, age, profile_picture) 
-                         VALUES ('".$user_data[email]."','".$user_data[username].
+				VALUES ('".$user_data[email]."','".$user_data[username].
                                     "','".$user_data[password]."','".$user_data[name].
                                     "','".$user_data[lastname]."',".$user_data[age].",null)";
         return $this->db->query($sql);
