@@ -8,7 +8,7 @@
 namespace controllers;
 class User_controller
 {
-     private $modelArwork1 ;
+    private $modelArwork1;
     private $model;
     private $validation;
 
