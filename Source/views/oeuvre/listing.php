@@ -23,6 +23,7 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
             <th>Date</th>
             <th>Description</th>
             <th>Catégorie</th>
+            <th>Supprimer</th>
         </tr>
         </thead>
         <tbody>
@@ -39,6 +40,11 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
+                <td>
+                    <p>
+                        <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-primary btn-block">Supprimer oeuvre</a>
+                    </p>
+                </td>
             </tr>
             <?php
         }?>

@@ -33,5 +33,9 @@ class ListingOeuvre_controller
         return $artwork_data;
     }
 
-
+    public function deleteControllers($toDelete){
+        echo $toDelete;
+        $this->model->deleteArtwork($toDelete);
+        header('Location: ../views/oeuvre/listing');
+    }
 }

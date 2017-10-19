@@ -37,4 +37,10 @@ class listingOeuvre_model
         $result = $this->db->query($sql);
         return $result;
     }
+
+    public function deleteArtwork($idArtwork){
+        $sql = 'DELETE FROM Artwork WHERE idArtwork ='.$idArtwork;
+        echo $sql;
+        return $result = $this->db->query($sql);
+    }
 }
