@@ -1,8 +1,8 @@
 <?php
 namespace controllers;
 class gallerie_controller{
-    private $model;
 
+    private $model;
     function __construct() {
         // connecting to model
         require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\gallerie_model.php';
