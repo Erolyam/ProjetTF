@@ -105,8 +105,9 @@ class User_controller
 
 
         $user_Login = array();
-        $password =$_POST['password'];
-        $username =$_POST['username'];
+         $password =hash('sha256', $_POST['password']);
+        //$password = $_POST['password'];
+        $username = $_POST['username'];
 
 
               //  $password = hash('sha256',$password );
@@ -131,7 +132,7 @@ class User_controller
 
         $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);       
            // $gg = $user_Login->num_rows;   
-      $allArtwork = serialize($allArtwork);
+         $allArtwork = serialize($allArtwork);
 
 //$tab = array("prenom" => "Hugo", "nom" => "ETIEVANT", "age" => 1980 );
          //<a href="test.php3?str=".addslashes(urlencode(serialize($tab)))."">
@@ -141,7 +142,7 @@ class User_controller
                     //$this->session->set_flashdata('user_loggedin', 'You are now logged in');
                    // json_encode($result);
                     
-                    header('Location: ../views/Artwork/index.php?errorMssg='.urlencode($allArtwork));
+                    header('Location: ../views/gallerie/gallerie.php');
 
                  //   while ($row = mysql_fetch_array($result)) {
                    //       echo("ID : %s  Nom : %s".$row[0].$row[1]);
