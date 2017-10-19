@@ -36,6 +36,6 @@ class ListingOeuvre_controller
     public function deleteControllers($toDelete){
         echo $toDelete;
         $this->model->deleteArtwork($toDelete);
-        header('Location: ../views/oeuvre/listing');
+        header('Location: ../views/oeuvre/listing.php');
     }
 }

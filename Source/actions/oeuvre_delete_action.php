@@ -4,5 +4,5 @@ require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).
 $a = new \controllers\ListingOeuvre_controller(true);
 // Appeler la fonction
 $toDelete=($_GET['idArtwork']);
-//echo $toDelete.' ';
+echo $toDelete.' ';
 $a->deleteControllers($toDelete);
