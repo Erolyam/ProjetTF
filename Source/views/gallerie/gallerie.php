@@ -1,24 +1,7 @@
 <?php include('../templates/header.php');?>
 <?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\gallerie_action.php'; ?>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <title>Numéro #1_Galerie</title>
-
-    <link rel="stylesheet" href="../../assets/bsGallerie/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/bsGallerie/css/font-awesome.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="../../assets/bsGallerie/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
-
-</head>
-<body>
+  
 
 <!-- PRE LOADER -->
 
@@ -59,9 +42,11 @@
             <?php foreach ($listArtwork as $data){
                 ?>
                 <div class="col-md-4 col-sm-6">
-                    <a href="detail.html">
+                    <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $data['idArtwork']; ?>">
                         <div class="portfolio-thumb">
-                            <img src="../../assets/bsGallerie/image/test.png" class="img-responsive" alt="Portfolio">
+                     
+                        <img src="../../assets/bsGallerie/image/test.png" class="img-responsive" alt="Portfolio"> 
+                    
                             <div class="portfolio-overlay">
                                 <div class="portfolio-item">
                                     <h3><?php echo $data['title'] ?></h3>
@@ -81,8 +66,6 @@
 
 <!-- SCRIPTS -->
 
-<script src="../../assets/bsGallerie/js/jquery.js"></script>
-<script src="../../assets/bsGallerie/js/bootstrap.min.js"></script>
-<script src="../../assets/bsGallerie/js/custom.js"></script>
+
 
 <?php include('../templates/footer.php');?>

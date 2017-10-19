@@ -5,6 +5,16 @@
 		<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/MyStyle.css">
     <link rel="stylesheet" href="../../assets/js/MyJS.css">
+    <script src="../../assets/bsGallerie/js/jquery.js"></script>
+<script src="../../assets/bsGallerie/js/bootstrap.min.js"></script>
+<script src="../../assets/bsGallerie/js/custom.js"></script>
+ <link rel="stylesheet" href="../../assets/bsGallerie/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bsGallerie/css/font-awesome.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../../assets/bsGallerie/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
 	</head>
 	<body>
 	<nav class="navbar navbar-inverse">
