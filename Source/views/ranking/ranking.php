@@ -1,7 +1,7 @@
-<?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).
+<?php include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
     '\ProjetTF\Source\views\templates\header.php';
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).
-    '\ProjetTF\Source\actions\adsadsa'; ?>
+include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
+    '\ProjetTF\Source\actions\get_ranking.php'; ?>
 
     <!DOCTYPE html>
     <html lang="fr">
@@ -19,41 +19,42 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).
         <h2>Listes des classements</h2>
         <p>Il s'agit des liste des classements par categorie et par durée </p>
         <?php
-        foreach  ($listCategories as $categorie) {
-
-        ?>
-        <p>Il s'agit des liste des classements par categorie et par durée </p>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Vote Like</th>
-                <th>Vote Dislike</th>
-            </tr>
-            </thead>
-            <tbody>
+        for ($i = count($daysList)-1; $i >=0 ; $i--) {
+            $days = $daysList[$i];
+            ?>
+            <h3><?php echo $days; ?> jours</h3>
             <?php
-            foreach  ($listOeuvre as $oeuvre_data) {
+            foreach ($rankingsList[$i] as $key => $value) {
                 ?>
+                <table class="table table-bordered">
+                <p><?php echo $key;
+                    if(count($value)==0){
+                        echo '<p>Classement n\'est pas disponible</p>';
+                        continue;
+                    }?></p>
+                <thead>
                 <tr>
-                    <td>
-                        <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $oeuvre_data['idArtwork']; ?>"><?php echo $oeuvre_data['title'] ?></a>
-                    </td>
-                    <td> <?php echo $oeuvre_data['date'] ?> </td>
-                    <td> <?php echo $oeuvre_data['description'] ?> </td>
-                    <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
-                    <td>
-                        <p>
-                            <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-primary btn-block">Supprimer oeuvre</a>
-                        </p>
-                    </td>
+                    <th>Titre</th>
+                    <th>Vote Like</th>
+                    <th>Vote Dislike</th>
                 </tr>
+                </thead>
+                <tbody>
                 <?php
-            }?>
-            </tbody>
-        </table>
+                foreach ($value as $ranking) {
+                    ?>
+                    <tr>
+                        <td> <?php echo $ranking['title'] ?> </td>
+                        <td> <?php echo $ranking['l'] ?> </td>
+                        <td> <?php echo $ranking['d'] ?> </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+                <?php
+            } ?>
+            </table>
             <?php
-        }?>
+        } ?>
 
     </div>
 
@@ -61,4 +62,4 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).
     </html>
 
 
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

@@ -29,7 +29,7 @@ class Ranking_model
     }
 
     function getRankingByCategoryAndTime($idCategory,$days){
-        $sql = "SELECT a.title as title, (SUM(IF(v.like,1,0)) - SUM(IF(not v.like,1,0))) as votes
+        $sql = "SELECT a.title as title, (SUM(IF(v.like,1,0)) - SUM(IF(not v.like,1,0))) as votes, SUM(IF(v.like,1,0)) as l, SUM(IF(not v.like,1,0)) as d 
                 FROM Artwork a LEFT OUTER JOIN Vote v 
                 ON v.Artwork_idArtwork = a.idArtwork
                 JOIN Category c ON c.idCategory = a.Category_idCategory
