@@ -25,10 +25,10 @@
         <div id="navbar">
           <ul class="nav navbar-nav">
              <li><a href="../gallerie/gallerie.php">Galerie</a></li>
-             <li><a href="../classement/classement.php">Classement</a></li>
+             <li><a href="../ranking/ranking.php">Classement</a></li>
              <li><a href="../administration/list_users.php">Administration</a></li>
-             <li><a href="../oeuvre/listing.php">Liste des oeuvres</a></li>
-             <li><a href="../oeuvre/listingPerCategory.php">Liste des oeuvres par catégorie</a></li>
+             <li><a href="../oeuvre/listing.php">Oeuvres</a></li>
+             <li><a href="../oeuvre/listingPerCategory.php">Oeuvres par catégorie</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
@@ -43,7 +43,7 @@
 
     ?>
             <li><a href="../posts/create.php">Ajouter une oeuvre</a></li>
-            <li><a href="../categories/create.php">Créer une catégorie</a></li>
+            <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
              <li><a href="../../actions/logout.php">Déconnexion</a></li>
               <li ><a href="#" style="color.http.ResponseEn:yellow" > <?php echo $_SESSION['username']   ?></a></li>
 <?php  }   else {    ?>

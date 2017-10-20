@@ -14,7 +14,7 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
 <body>
 
 <div class="container">
-  <h2>Liste des membres</h2>
+  <h2>Liste des catégories</h2>
   <p>Il s'agit de la liste des catégories.</p>            
   <table class="table table-bordered">
     <thead>
@@ -58,6 +58,10 @@ foreach  ($listCategories as $user_data) {
     </tbody>
   </table>
 </div>
+
+<p>
+          <a href="../opCategorie/opCategorieView.php" class="btn btn btn-success btn-block">Ajouter une nouvelle catégorie</a>
+        </p> 
 
 
    
