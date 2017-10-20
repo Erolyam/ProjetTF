@@ -1,7 +1,7 @@
 <?php include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
-    '\ProjetTF\Source\views\templates\header.php';
+    '/ProjetTF/Source/views/templates/header.php';
 include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
-    '\ProjetTF\Source\actions\get_ranking.php'; ?>
+    '/ProjetTF/Source/actions/get_ranking.php'; ?>
 
     <!DOCTYPE html>
     <html lang="fr">
@@ -23,20 +23,21 @@ include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
             $days = $daysList[$i];
             ?>
             <h3><?php echo $days; ?> jours</h3>
+            <div class="row">
             <?php
             foreach ($rankingsList[$i] as $key => $value) {
                 ?>
-                <table class="table table-bordered">
-                <p><?php echo $key;
+                <?php echo '<div class="col-sm-4">'.'<strong>'.$key.'</strong>';
                     if(count($value)==0){
-                        echo '<p>Classement n\'est pas disponible</p>';
+                        echo '<p>Désolé, personne n\'a voté!</p></div>';
                         continue;
-                    }?></p>
+                    }?>
+                <table class="table table-responsive table-bordered">
                 <thead>
                 <tr>
                     <th>Titre</th>
-                    <th>Vote Like</th>
-                    <th>Vote Dislike</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,9 +51,11 @@ include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
                     </tr>
                 <?php } ?>
                 </tbody>
+                </table>
                 <?php
+                echo '</div>';
             } ?>
-            </table>
+            </div>
             <?php
         } ?>
 
