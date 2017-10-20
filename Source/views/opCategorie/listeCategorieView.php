@@ -59,6 +59,10 @@ foreach  ($listCategories as $user_data) {
   </table>
 </div>
 
+<?php
+    if (isset($_POST['idCategory'])) { echo ($_POST['idCategory']);} 
+    ?>
+
 <p>
           <a href="../opCategorie/opCategorieView.php" class="btn btn btn-success btn-block">Ajouter une nouvelle catégorie</a>
         </p> 

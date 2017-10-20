@@ -29,7 +29,9 @@
              <li><a href="../administration/list_users.php">Administration</a></li>
              <li><a href="../oeuvre/listing.php">Oeuvres</a></li>
              <li><a href="../oeuvre/listingPerCategory.php">Oeuvres par catégorie</a></li>
+             <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
           </ul>
+
           <ul class="nav navbar-nav navbar-right">
 
            
@@ -42,9 +44,11 @@
 <?php if (isset($_SESSION['username'])){
 
     ?>
-            <li><a href="../posts/create.php">Ajouter une oeuvre</a></li>
-            <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
-             <li><a href="../../actions/logout.php">Déconnexion</a></li>
+             
+              <li><a href="../../actions/logout.php">Déconnexion</a></li>
+          
+           
+            
               <li ><a href="#" style="color.http.ResponseEn:yellow" > <?php echo $_SESSION['username']   ?></a></li>
 <?php  }   else {    ?>
 
