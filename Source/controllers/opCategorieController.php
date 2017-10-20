@@ -13,7 +13,7 @@ class opCategorieController
     //D:\xampp\htdocs\
     // constructeur; pour le test mode $s est false
     function __construct($s) {
-        session_start();
+       // session_start();
         // connecting to model
         if($s){
             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\opCategorieModel.php';
@@ -40,17 +40,32 @@ class opCategorieController
             }
         }
 
-    public function is_form_valid($category_data){
-        $v = $this->validation;
-        $flag = true;
-        $error=0;
-        if(!$v->validate_name($category_data['nomCat'])){
-            $flag = false;
-            $error='Le nom pour la categorie n\'est pas valide';
-        }
-        if(!$flag)
-            $_SESSION['error'] = $error;
-        return $flag;
-    }
 
+         public function deleteCategoryControllers($toDelete){
+            echo $toDelete;
+            $this->model->deleteCategories($toDelete);
+            header('Location: ../views/opCategorie/listeCategorieView.php');
+         }
+
+
+  
+        public function getAllCategoriesControllers(){
+            $user_data = $this->model->getAllCategories();
+            $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
+            return $user_data;
+        }
+
+
+        public function is_form_valid($category_data){
+            $v = $this->validation;
+            $flag = true;
+            $error=0;
+            if(!$v->validate_name($category_data['nomCat'])){
+                $flag = false;
+                $error='Le nom pour la categorie n\'est pas valide';
+            }
+            if(!$flag)
+                $_SESSION['error'] = $error;
+            return $flag;
+        }
 }

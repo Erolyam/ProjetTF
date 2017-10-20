@@ -32,7 +32,24 @@ class opCategorieModel
                          VALUES ('".$toAdd['nomCat']."')";
         return $this->db->query($sql);
     }
-
     
+    public function deleteCategories($idCategory){
+        $sql = 'DELETE FROM Category WHERE idCategory ='.$idCategory;
+            echo $sql;
+        return $result = $this->db->query($sql);
+    }
+
+
+
+
+
+    public function getAllCategories(){
+        $sql = "SELECT * FROM Category";
+        $result = $this->db->query($sql);
+        return $result; 
+    }
+
+
+
 
   }
