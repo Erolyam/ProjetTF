@@ -8,7 +8,7 @@
 namespace controllers;
 class User_controller
 {
-     private $modelArwork1 ;
+    private $modelArwork1;
     private $model;
     private $validation;
 
@@ -49,7 +49,7 @@ class User_controller
         } else {
             $this->model->register($user_data);
             $_SESSION['message'] = 'Utilisateur ajouté correctement';
-            header("Location: ../views/users/register.php");
+            header("Location: ../views/users/login.php");
             die();//To finish function after header redirection
         }
     }

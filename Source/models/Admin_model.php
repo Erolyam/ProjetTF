@@ -31,9 +31,4 @@ class Admin_model
         return $result = $this->db->query($sql);
     }
 
-
-
-
-
-
 }
