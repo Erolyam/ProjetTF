@@ -16,7 +16,7 @@ class admin_controller
        // session_start();
         // connecting to model
         if($s){
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Admin_model.php';
+            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Admin_model.php';
            // require_once '../utilities/CustomValidation.php';
         }
         $this->model = new \models\Admin_model();

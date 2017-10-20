@@ -1,5 +1,5 @@
-<?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\views\templates\header.php';
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\oeuvrePerCategory.php'; ?>
+<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/oeuvrePerCategory.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">

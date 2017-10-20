@@ -16,8 +16,8 @@ class opCategorieController
        // session_start();
         // connecting to model
         if($s){
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\opCategorieModel.php';
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\utilities\CustomValidation.php';
+            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/opCategorieModel.php';
+            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/utilities/CustomValidation.php';
         }
         $this->model = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();

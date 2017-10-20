@@ -5,7 +5,7 @@ class gallerie_controller{
     private $model;
     function __construct() {
         // connecting to model
-        require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\gallerie_model.php';
+        require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/gallerie_model.php';
 
         $this->model = new \models\gallerie_model();
 

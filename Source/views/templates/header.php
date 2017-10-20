@@ -25,7 +25,7 @@
         <div id="navbar">
           <ul class="nav navbar-nav">
              <li><a href="../gallerie/gallerie.php">Galerie</a></li>
-             <li><a href="Classement">Classement</a></li>
+             <li><a href="../classement/classement.php">Classement</a></li>
              <li><a href="../administration/list_users.php">Administration</a></li>
              <li><a href="../oeuvre/listing.php">Liste des oeuvres</a></li>
              <li><a href="../oeuvre/listingPerCategory.php">Liste des oeuvres par catégorie</a></li>
@@ -42,16 +42,16 @@
 <?php if (isset($_SESSION['username'])){
 
     ?>
-            <li><a href="posts/create">Ajouter une oeuvre</a></li>
-            <li><a href="categories/create">Créer une catégorie</a></li>
+            <li><a href="../posts/create.php">Ajouter une oeuvre</a></li>
+            <li><a href="../categories/create.php">Créer une catégorie</a></li>
              <li><a href="../../actions/logout.php">Déconnexion</a></li>
               <li ><a href="#" style="color.http.ResponseEn:yellow" > <?php echo $_SESSION['username']   ?></a></li>
 <?php  }   else {    ?>
 
 
 
- <li><a href="users/login">Se connecter</a></li>
-            <li><a href="users/register">Créer un compte</a></li>
+ <li><a href="../users/login.php">Se connecter</a></li>
+            <li><a href="../users/register.php">Créer un compte</a></li>
 
             <?php  }    ?>
           </ul>
