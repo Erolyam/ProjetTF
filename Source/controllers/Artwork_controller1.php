@@ -5,6 +5,7 @@ class Artwork_controller1
 
     private $modelArtwork;
     private $modelComment;
+    private $modelVote;
     private $validation;
 
     // constructeur; pour le test mode $s est false
@@ -14,6 +15,7 @@ class Artwork_controller1
             require_once '../models/Artwork_Model1.php';
             require_once '../models/Comment_Model.php';
             require_once '../utilities/CustomValidation.php';
+            require_once '../models/Vote_model.php';
 
         }
         $this->modelComment = new \models\Comment_Model();
@@ -21,6 +23,7 @@ class Artwork_controller1
       //  $this->modelCategorie = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();
 
+        $this->modelVote = new \models\Vote_model();
     }
 
 
@@ -73,6 +76,25 @@ class Artwork_controller1
 
     }
 
+    public function like(){
+        session_start();
+        $Artwork = $_SESSION['idArtwork'] ;
+        $this->modelVote->like();
+        $this->view($Artwork);
+    }
+
+    public function dislike(){
+        session_start();
+        $Artwork = $_SESSION['idArtwork'] ;
+        $this->modelVote->dislike();
+        $this->view($Artwork);
+    }
+
+    public function exist(){
+        session_start();
+        return $this->modelVote->exist();
+    }
 }
+
 
 ?>

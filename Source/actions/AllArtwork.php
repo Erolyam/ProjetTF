@@ -13,3 +13,13 @@ if(isset($_POST['edit'])){
 }
 
 
+if(isset($_POST['like'])){
+    $u->like();
+}
+if(isset($_POST['dislike'])) {
+    $u->dislike();
+}
+
+$exist = $u->exist();
+
+
