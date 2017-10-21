@@ -31,7 +31,7 @@ class User_model
         $sql = "INSERT INTO User(email, username, password, name, lastname, age, profile_picture) 
 				VALUES ('".$user_data[email]."','".$user_data[username].
                                     "','".$user_data[password]."','".$user_data[name].
-                                    "','".$user_data[lastname]."',".$user_data[age].",null)";
+                                    "','".$user_data[lastname]."',".$user_data[age].",'".$user_data['photo']."')";
         return $this->db->query($sql);
     }
 

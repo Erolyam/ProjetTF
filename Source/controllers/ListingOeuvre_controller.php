@@ -15,8 +15,7 @@ class ListingOeuvre_controller
         //session_start();
         // connecting to model
         if($s){
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\listingOeuvre_model.php';
-
+            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/ListingOeuvre_model.php';
         }
         $this->model = new \models\listingOeuvre_model();
     }
