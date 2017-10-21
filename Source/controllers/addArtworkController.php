@@ -9,9 +9,7 @@ namespace controllers;
 class addArtworkController
 {
     private $model;
-    // private $validation;
-    //D:\xampp\htdocs\
-    // constructeur; pour le test mode $s est false
+
     function __construct($s) {
       if(!isset($_SESSION)) 
     { 
@@ -26,56 +24,21 @@ class addArtworkController
         //$this->validation = new \utilities\CustomValidation();
     }
 
-	public function getAllCategoriesController(){       
-        $user_data = $this->model->getAllCategories();
-        $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
-        return $user_data;       
+  	public function getAllCategoriesController(){       
+      $user_data = $this->model->getAllCategories();
+      $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
+      return $user_data;       
     }
 
+    public function addArtworkController($category_data){
+      $this->model->addArtwork($category_data);
+    }
 
-     public function addArtworkController($category_data){
-           // $v = $this->validation;
-            //$category_data = array();
-           // $category_data['nomCat']=$v->normalize($_POST['nomCat']);
-           // if($this->is_form_valid($category_data) === FALSE){
-              //  header('Location: ../views/opCategorie/opCategorieView.php');
-             //   die();//To finish function after header redirection
-           // } else {
-                //Execute Query
-                $this->model->addArtwork($category_data);
-               // $_SESSION['message'] = 'Artwork ajouté correctement';
-               // header('Location: ../views/Artwork/addArtwork.php');
-               // die();//To finish function after header redirection
-            //}
-        }
-
-        public function getACategory($category_data){
-           // $v = $this->validation;
-            //$category_data = array();
-           // $category_data['nomCat']=$v->normalize($_POST['nomCat']);
-           // if($this->is_form_valid($category_data) === FALSE){
-              //  header('Location: ../views/opCategorie/opCategorieView.php');
-             //   die();//To finish function after header redirection
-           // } else {
-                //Execute Query
-                $this->model->getACategory($category_data);
-               // $_SESSION['message'] = 'Artwork ajouté correctement';
-               // header('Location: ../views/Artwork/addArtwork.php');
-               // die();//To finish function after header redirection
-            //}
-        }
-    
-
-
-
+    public function getACategory($category_data){
+      $this->model->getACategory($category_data);
+    }  
 }
    
-   /* public function getAllCategoriesController(){       
-        $user_data = $this->model->getAllCategories();
-        $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
-        return $user_data;       
-    }*/
-
-
+   
 
 

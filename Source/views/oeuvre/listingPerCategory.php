@@ -26,14 +26,7 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
         </tr>
         </thead>
         <tbody>
-
-
-        <?php
-
-        foreach  ($listOeuvrePerCategory as $oeuvre_data) {
-
-            ?>
-
+        <?php foreach  ($listOeuvrePerCategory as $oeuvre_data) { ?>
             <tr>
                 <td> <?php echo $oeuvre_data['title'] ?> </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>

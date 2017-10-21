@@ -40,15 +40,12 @@ class opCategorieController
             }
         }
 
-
          public function deleteCategoryControllers($toDelete){
             echo $toDelete;
             $this->model->deleteCategories($toDelete);
             header('Location: ../views/opCategorie/listeCategorieView.php');
          }
 
-
-  
         public function getAllCategoriesControllers(){
             $user_data = $this->model->getAllCategories();
             $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
