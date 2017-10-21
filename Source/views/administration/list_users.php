@@ -33,10 +33,6 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
 
 
 <?php
-//$array_user = !empty($_GET['envoiInfo']) ? $GET['envoiInfo'] : NULL;
-
-//$array_user = unserialize(stripslashes($_GET['envoiInfo']));
-
 foreach  ($listUsers as $user_data) {    
 
 ?>

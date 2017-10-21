@@ -16,10 +16,6 @@ foreach  ( $Artworks as $Artwork) {
       
 ?>
 
-
-
-
-
 <small class="post-date">Ajouté le: <?php echo $Artwork['date']; ?></small><br>
 
 <div class="post-body">
@@ -30,9 +26,6 @@ foreach  ( $Artworks as $Artwork) {
     </div>
 	
 	 </div>
-
-
-
 	
 <?php 
 
@@ -93,12 +86,7 @@ if(isset($_SESSION['username'])){
 		</div>
 	<?php } ?>
 
-
-
-
-
 <hr>
-
 
 <?php include('../templates/footer.php');?>
 

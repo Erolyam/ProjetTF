@@ -3,7 +3,7 @@ namespace controllers;
 class Artwork_controller1
 {
 
-    private $modelArwork;
+    private $modelArtwork;
     private $modelComment;
     private $validation;
 
@@ -14,17 +14,20 @@ class Artwork_controller1
             require_once '../models/Artwork_Model1.php';
             require_once '../models/Comment_Model.php';
             require_once '../utilities/CustomValidation.php';
+
         }
         $this->modelComment = new \models\Comment_Model();
-        $this->modelArwork = new \models\Artwork_Model1();
+        $this->modelArtwork = new \models\Artwork_Model1();
+      //  $this->modelCategorie = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();
+
     }
 
 
       
     public function view($idArtwork){
 
-        $Artwork = $this->modelArwork->getArtwork($idArtwork);
+        $Artwork = $this->modelArtwork->getArtwork($idArtwork);
 
         $Artwork = $Artwork->fetch_all(MYSQLI_ASSOC);
 

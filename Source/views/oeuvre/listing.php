@@ -27,14 +27,7 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
         </tr>
         </thead>
         <tbody>
-
-
-        <?php
-
-        foreach  ($listOeuvre as $oeuvre_data) {
-
-            ?>
-
+        <?php foreach  ($listOeuvre as $oeuvre_data) { ?>
             <tr>
                 <td>
                     <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $oeuvre_data['idArtwork']; ?>"><?php echo $oeuvre_data['title'] ?></a>
@@ -48,14 +41,12 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
                     </p>
                 </td>
             </tr>
-            <?php
-        }?>
+            <?php } ?>
         </tbody>
     </table>
 </div>
-
+<p> <a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a> </p> 
 </body>
 </html>
-
 
 <?php include('../templates/footer.php');?>
