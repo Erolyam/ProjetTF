@@ -45,7 +45,7 @@ include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
                 foreach ($value as $ranking) {
                     ?>
                     <tr>
-                        <td> <?php echo $ranking['title'] ?> </td>
+                        <td> <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $ranking["idArtwork"]; ?>"> <?php echo $ranking['title'] ?></a> </td>
                         <td> <?php echo $ranking['l'] ?> </td>
                         <td> <?php echo $ranking['d'] ?> </td>
                     </tr>

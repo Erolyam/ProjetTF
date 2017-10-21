@@ -17,10 +17,10 @@ class User_controller
         session_start();
         // connecting to model
         if($s){
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/User_model.php';
-             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Artwork_Model1.php';
+            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/User_model.php';
+             require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Artwork_Model1.php';
             //require_once '../models/User_model.php';
-             require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/utilities/CustomValidation.php';
+             require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/utilities/CustomValidation.php';
             //require_once '../utilities/CustomValidation.php';
         }
         $this->model = new \models\User_model();
@@ -39,18 +39,24 @@ class User_controller
         // Encrypt password
         $user_data['password']=hash('sha256', $_POST['password']);
         $user_data['passconf']=hash('sha256', $_POST['passconf']);
-        if(isset($_FILES['photo'])){
-            /*$file_data = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
-            $user_data['photo']=$file_data;*/
-        }
         if($this->is_form_valid($user_data) === FALSE){
             header("Location: ../views/users/register.php");
             die();//To finish function after header redirection
         } else {
-            $this->model->register($user_data);
-            $_SESSION['message'] = 'Utilisateur ajouté correctement';
-            header("Location: ../views/users/login.php");
-            die();//To finish function after header redirection
+            if(isset($_FILES['photo'])){
+                $destination = str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/images/userPhoto_'.$user_data['username'];
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination)) {
+                    $user_data['photo']=$destination;
+                    if($this->model->register($user_data))
+                        $_SESSION['message'] = 'Utilisateur ajouté correctement';
+                    else
+                        $_SESSION['error'] = 'Erreur de BD: ';
+                    header("Location: ../views/users/login.php");
+                    die();//To finish function after header redirection
+                } else {
+                    $_SESSION['error'] = 'Erreur avec l\'image attachée: ';
+                }
+            }
         }
     }
 
