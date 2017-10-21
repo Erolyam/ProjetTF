@@ -42,7 +42,7 @@ foreach  ($listCategories as $user_data) {
         <td>  
 
           <p>
-          <a href="../../actions/deleteCategory.php?idCategory=<?php echo $user_data['idCategory']?>" class="btn btn-primary btn-block">Supprimer la caétgorie</a>
+          <a href="../../actions/deleteCategory.php?idCategory=<?php echo $user_data['idCategory']?>" class="btn btn-primary btn-block">Supprimer la catégorie</a>
         </p> 
         </p> 
 
