@@ -20,18 +20,14 @@ if(!isset($_SESSION['role'])){
                   <textarea class="form-control" rows="5" name="description" id="comment" placeholder="Description"> </textarea>
              </div> 
 
-             <div class="form-group">
-                  <label for="comment">ID user</label>
-                  <textarea class="form-control" rows="5" name="idUser" id="comment" disabled="disabled" placeholder="zb zboub"    ><?php echo $_SESSION['idUser']?>  </textarea>
-             </div> 
-
+             
             <div class="form-group">
                   <label for="category">Choisisez la catégorie</label>
                   <select class="form-control" name="category" id="category">
                    <?php
                     foreach ($listCategory as $user_data) {    
                     ?>
-                    <option><?php echo $user_data['name'] ?></option>
+                    <option value="<?php echo $user_data['idCategory'] ?>"><?php echo $user_data['name'] ?></option>
                       <?php
                          }?>
 

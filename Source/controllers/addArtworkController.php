@@ -32,11 +32,9 @@ class addArtworkController
 
     public function addArtworkController($category_data){
       $this->model->addArtwork($category_data);
+     // header('Location: ../Artwork/addArtwork.php');
     }
 
-    public function getACategory($category_data){
-      $this->model->getACategory($category_data);
-    }  
 }
    
    
