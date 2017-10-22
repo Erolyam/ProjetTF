@@ -8,7 +8,7 @@
 <form enctype="multipart/form-data" action="../../actions/addArtwork.php" method="post">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <h2 class="text-center">Ajout d'une oeuvre</h1>
+            <h2 class="text-center">Ajout d'une oeuvre</h2>
             <div class="form-group">
                 <label>Titre</label>
                 <input type="text" name="title" class="form-control" placeholder="Nom de l'oeuvre">
