@@ -151,9 +151,8 @@ class User_controller
 
         else {
             // Set message
-            //$this->session->set_flashdata('login_failed', 'Login incorrect');
-
-            //   redirect('users/login');
+            $_SESSION['error'] = 'Login incorrect';
+            header('Location: ../views/users/login.php');
         }
 
     }
