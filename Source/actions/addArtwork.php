@@ -6,10 +6,3 @@ $category_data = $_POST;
 
 $a->addArtworkController($category_data);
 
-//echo $category_data['title'].' ';
-//echo date('Y-m-d').' ';
-//echo $category_data['description'].' ';
-//echo $category_data['category'].' ';
-//echo $category_data['idUser'].' et ';
-//echo $_SESSION['idUser'].' ';
-

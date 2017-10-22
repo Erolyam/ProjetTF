@@ -1,4 +1,9 @@
-<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+<?php
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+if(!isset($_SESSION['role']) || $_SESSION['role']!="ADMIN"){
+    header("Location: ../errors/403.php");
+    die();
+}
 include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/administration.php'; ?>
 
 <!DOCTYPE html>

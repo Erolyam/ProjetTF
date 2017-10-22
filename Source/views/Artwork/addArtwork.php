@@ -1,14 +1,16 @@
-<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';?>
+<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+if(!isset($_SESSION['role'])){
+    header("Location: ../errors/403.php");
+    die();
+}?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/addArtwork.php'; ?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/listeCategorieForArtwork.php'; ?>
-
-
 
 
 <form enctype="multipart/form-data" action="../../actions/addArtwork.php" method="post">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <h2 class="text-center">Ajout d'une oeuvre</h1>
+            <h2 class="text-center">Ajout d'une oeuvre</h2>
             <div class="form-group">
                 <label>Titre</label>
                 <input type="text" name="title" class="form-control" placeholder="Nom de l'oeuvre">
@@ -18,18 +20,14 @@
                   <textarea class="form-control" rows="5" name="description" id="comment" placeholder="Description"> </textarea>
              </div> 
 
-             <div class="form-group">
-                  <label for="comment">ID user</label>
-                  <textarea class="form-control" rows="5" name="idUser" id="comment" disabled="disabled" placeholder="zb zboub"    ><?php echo $_SESSION['idUser']?>  </textarea>
-             </div> 
-
+             
             <div class="form-group">
                   <label for="category">Choisisez la catégorie</label>
                   <select class="form-control" name="category" id="category">
                    <?php
                     foreach ($listCategory as $user_data) {    
                     ?>
-                    <option><?php echo $user_data['name'] ?></option>
+                    <option value="<?php echo $user_data['idCategory'] ?>"><?php echo $user_data['name'] ?></option>
                       <?php
                          }?>
 
