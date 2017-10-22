@@ -1,4 +1,9 @@
-<?php include('../templates/header.php');?>
+<?php include('../templates/header.php');
+if(isset($_SESSION['role'])){
+    header("Location: ../gallerie/gallerie.php");
+    die();
+}
+?>
 <form enctype="multipart/form-data" action="../../actions/user_register.php" method="post">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">

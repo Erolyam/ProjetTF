@@ -1,8 +1,10 @@
-<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';?>
+<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+if(!isset($_SESSION['role'])){
+    header("Location: ../errors/403.php");
+    die();
+}?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/addArtwork.php'; ?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/listeCategorieForArtwork.php'; ?>
-
-
 
 
 <form enctype="multipart/form-data" action="../../actions/addArtwork.php" method="post">
