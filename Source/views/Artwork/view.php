@@ -37,6 +37,7 @@ foreach  ( $Artworks as $Artwork) {
 
     <form action="../../actions/vote.php" method="post">
 
+
         <?php if($exist==-1){?>
         <button class="btn btn-success" name="like" type="submit">like</button>
         <button class="btn btn-danger" name="dislike" type="submit">dislike</button>

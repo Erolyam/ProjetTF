@@ -45,6 +45,9 @@ class vote_controller
 
         $AllComment = serialize($AllComment);
 
+        session_start();
+        $_SESSION['idArtwork'] =$idArtwork;
+
         header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
 
     }

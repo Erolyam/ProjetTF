@@ -24,6 +24,7 @@ class Artwork_controller1
         $this->validation = new \utilities\CustomValidation();
 
         $this->modelVote = new \models\Vote_model();
+
     }
 
 
@@ -41,6 +42,9 @@ class Artwork_controller1
         $AllComment = $AllComment->fetch_all(MYSQLI_ASSOC);
 
         $AllComment = serialize($AllComment);
+
+        session_start();
+        $_SESSION['idArtwork'] =$idArtwork;
 
         header('Location: ../views/Artwork/view.php?errorMssg=' . urlencode($Artwork) . '&comments=' . urlencode($AllComment));
 
