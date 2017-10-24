@@ -30,10 +30,15 @@ if(!isset($_SESSION['role'])){
                     <option value="<?php echo $user_data['idCategory'] ?>"><?php echo $user_data['name'] ?></option>
                       <?php
                          }?>
-
                   </select>
             </div> 
         
+            <div class="form-group">
+                <label>Photo de l'oeuvre</label>
+                <input type="file" class="form-control" name="photo" placeholder="Importer la photo">
+            </div>
+
+
             <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Valider la nouvelle oeuvre</button>
             </div>

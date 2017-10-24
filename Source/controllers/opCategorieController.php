@@ -13,7 +13,7 @@ class opCategorieController
     //D:\xampp\htdocs\
     // constructeur; pour le test mode $s est false
     function __construct($s) {
-       // session_start();
+        session_start();
         // connecting to model
         if($s){
             require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/opCategorieModel.php';
@@ -26,7 +26,7 @@ class opCategorieController
         public function addCategoryController(){
             $v = $this->validation;
             $category_data = array();
-            $category_data['nomCat']=$v->normalize($_POST['nomCat']);
+            $category_data['nomCat']=trim($_POST['nomCat']);
 
             if($this->is_form_valid($category_data) === FALSE){
                 header('Location: ../views/opCategorie/opCategorieView.php');
