@@ -38,7 +38,7 @@ class User_model
    // Log user in
         public function login($username, $password){
             // Validate
-           $sql = "SELECT * FROM user where username ='".$username ."' and password = '".$password."' ";
+           $sql = "SELECT * FROM User where username ='".$username ."' and password = '".$password."' ";
          
             $result = $this->db->query($sql);
 
@@ -52,14 +52,14 @@ class User_model
 
     function check_username_exists($username)
     {
-        $sql = "SELECT * FROM user WHERE username = '".$username."'";
+        $sql = "SELECT * FROM User WHERE username = '".$username."'";
         $result = $this->db->query($sql);
         return $result->num_rows > 0;
     }
 
     function check_email_exists($email)
     {
-        $sql = "SELECT * FROM user WHERE email = '".$email."'";
+        $sql = "SELECT * FROM User WHERE email = '".$email."'";
         $result = $this->db->query($sql);
         return $result->num_rows > 0;
     }

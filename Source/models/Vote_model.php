@@ -23,7 +23,7 @@ class Vote_model{
 
         $tmp = $this->exist();
         if ($tmp==false){
-            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '1', '".date('Y-m-d H:i:s')."');";
+            $sql = "INSERT INTO `Vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '1', '".date('Y-m-d H:i:s')."');";
 
             return $this->db->query($sql);
         }
@@ -34,7 +34,7 @@ class Vote_model{
 
         $tmp = $this->exist();
         if ($tmp==false){
-            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '0', '".date('Y-m-d H:i:s')."');";
+            $sql = "INSERT INTO `Vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '0', '".date('Y-m-d H:i:s')."');";
 
             return $this->db->query($sql);
         }
@@ -44,7 +44,7 @@ class Vote_model{
     public function exist(){
 
 
-        $sql = "select * from vote WHERE User_idUser = ".$_SESSION['idUser']." AND Artwork_idArtwork =".$_SESSION['idArtwork'];
+        $sql = "select * from Vote WHERE User_idUser = ".$_SESSION['idUser']." AND Artwork_idArtwork =".$_SESSION['idArtwork'];
 
         $res = $this->db->query($sql);
 

@@ -15,7 +15,7 @@ class gallerie_model{
     }
 
     function getRecent(){
-        $sql = "SELECT * FROM `artwork` ORDER BY date DESC LIMIT 9";
+        $sql = "SELECT * FROM `Artwork` ORDER BY date DESC LIMIT 9";
         return $this->db->query($sql);
     }
 

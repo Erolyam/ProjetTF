@@ -22,13 +22,13 @@ class ListingOeuvre_controller
 
     public function getAllArtworksControllers(){
         $artwork_data = $this->model->getAllArtwork();
-        $artwork_data = $artwork_data->fetch_all(MYSQL_ASSOC);
+        $artwork_data = $artwork_data->fetch_all(MYSQLI_ASSOC);
         return $artwork_data;
     }
 
     public function getArtworksPerCategoryControllers($categoryId){
         $artwork_data = $this->model->getArtworkPerCategory($categoryId);
-        $artwork_data = $artwork_data->fetch_all(MYSQL_ASSOC);
+        $artwork_data = $artwork_data->fetch_all(MYSQLI_ASSOC);
         return $artwork_data;
     }
 

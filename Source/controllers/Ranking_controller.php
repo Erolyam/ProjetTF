@@ -24,7 +24,7 @@ class Ranking_controller
 
     public function getAllRankings($idCategorie,$days){
         $rankings = $this->model->getRankingByCategoryAndTime($idCategorie,$days);
-        $rankings = $rankings->fetch_all(MYSQL_ASSOC);
+        $rankings = $rankings->fetch_all(MYSQLI_ASSOC);
         return $rankings;
     }
 
