@@ -42,7 +42,7 @@
             <?php foreach ($listArtwork as $data){
                 ?>
                 <div class="col-md-4 col-sm-6">
-                    <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $data['idArtwork']; ?>">
+                    <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $data['idArtwork']; $_SESSION['idArtwork'] = $data['idArtwork'] ?>">
                         <div class="portfolio-thumb">
                      
                         <img src="../../assets/bsGallerie/image/test.png" class="img-responsive" alt="Portfolio"> 

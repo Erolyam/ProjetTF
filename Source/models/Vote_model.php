@@ -19,34 +19,48 @@ class Vote_model{
         $this->db->close();
     }
 
-    public function like(){
+    public function like($idUser,$Artwork){
 
-        $tmp = $this->exist();
+        $tmp = $this->exist($idUser,$Artwork);
         if ($tmp==false){
-            $sql = "INSERT INTO `Vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '1', '".date('Y-m-d H:i:s')."');";
+            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$idUser."', '".$Artwork."', '1', '".date('Y-m-d H:i:s')."');";
+
+            return $this->db->query($sql);
+        }
+
+        else{
+            $sql = "UPDATE `vote` SET `like` = 1 WHERE `User_idUser` = ".$idUser." AND `Artwork_idArtwork` = ".$Artwork.";";
 
             return $this->db->query($sql);
         }
 
     }
 
-    public function dislike(){
+    public function dislike($idUser,$Artwork){
 
-        $tmp = $this->exist();
+        $tmp = $this->exist($idUser,$Artwork);
         if ($tmp==false){
-            $sql = "INSERT INTO `Vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$_SESSION['idUser']."', '".$_SESSION['idArtwork']."', '0', '".date('Y-m-d H:i:s')."');";
+            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$idUser."', '".$Artwork."', '0', '".date('Y-m-d H:i:s')."');";
+
+            return $this->db->query($sql);
+        }
+
+        else{
+            $sql = "UPDATE `vote` SET `like` = 0 WHERE `User_idUser` = ".$idUser." AND `Artwork_idArtwork` = ".$Artwork.";";
 
             return $this->db->query($sql);
         }
 
     }
 
-    public function exist(){
+    public function exist($idUser,$Artwork){
 
 
-        $sql = "select * from Vote WHERE User_idUser = ".$_SESSION['idUser']." AND Artwork_idArtwork =".$_SESSION['idArtwork'];
+        $sql = "select * from vote WHERE User_idUser = ".$idUser." AND Artwork_idArtwork =".$Artwork;
 
         $res = $this->db->query($sql);
+
+        $tmp = false;
 
         while($row=$res->fetch_array()){
             $tmp = $row;
@@ -55,5 +69,26 @@ class Vote_model{
         $res->close();
 
         return $tmp;
+
+    }
+
+    public function existDetail($idUser,$Artwork){
+
+        $tmp = -1;
+
+        if($this->exist($idUser,$Artwork)){
+            $sql = "select `like` from vote WHERE User_idUser = ".$idUser." AND Artwork_idArtwork =".$Artwork;
+
+            $res = $this->db->query($sql);
+
+            foreach ($res as $data) {
+                $tmp = $data['like'];
+            }
+
+            return $tmp;
+        }
+        else{
+            return $tmp;
+        }
     }
 }

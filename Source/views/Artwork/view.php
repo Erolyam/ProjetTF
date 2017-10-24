@@ -1,5 +1,7 @@
 <?php include('../templates/header.php');?><?php
 require_once '../../models/DB_Connection.php';
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/vote_exists.php';
+
   $conn = new \models\DB_Connection();
         $db = $conn->connect();
 
@@ -33,10 +35,22 @@ foreach  ( $Artworks as $Artwork) {
 //if($this->session->userdata('idUser') != $post['owner_idUser'] ) :  ?>
 
 
-    <form action="../../actions/AllArtwork.php" method="post">
+    <form action="../../actions/vote.php" method="post">
 
+        <?php if($exist==-1){?>
         <button class="btn btn-success" name="like" type="submit">like</button>
         <button class="btn btn-danger" name="dislike" type="submit">dislike</button>
+        <?php }?>
+
+        <?php if($exist==-0){?>
+            <button class="btn btn-success" name="like" type="submit">like</button>
+            <button class="btn btn-danger" name="dislike" type="submit" disabled="disabled">dislike</button>
+        <?php }?>
+
+        <?php if($exist==1){?>
+            <button class="btn btn-success" name="like" type="submit" disabled="disabled">like</button>
+            <button class="btn btn-danger" name="dislike" type="submit">dislike</button>
+        <?php }?>
 
     </form>
 	<h3>Ajouter un commentaire</h3>

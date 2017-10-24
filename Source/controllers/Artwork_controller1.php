@@ -5,13 +5,13 @@ class Artwork_controller1
 
     private $modelArtwork;
     private $modelComment;
-    private $modelVote;
     private $validation;
 
     // constructeur; pour le test mode $s est false
-    function __construct($s) {
+    function __construct($s)
+    {
         // connecting to model
-        if($s){
+        if ($s) {
             require_once '../models/Artwork_Model1.php';
             require_once '../models/Comment_Model.php';
             require_once '../utilities/CustomValidation.php';
@@ -20,15 +20,15 @@ class Artwork_controller1
         }
         $this->modelComment = new \models\Comment_Model();
         $this->modelArtwork = new \models\Artwork_Model1();
-      //  $this->modelCategorie = new \models\opCategorieModel();
+        //  $this->modelCategorie = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();
 
         $this->modelVote = new \models\Vote_model();
     }
 
 
-      
-    public function view($idArtwork){
+    public function view($idArtwork)
+    {
 
         $Artwork = $this->modelArtwork->getArtwork($idArtwork);
 
@@ -42,59 +42,41 @@ class Artwork_controller1
 
         $AllComment = serialize($AllComment);
 
-        header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
+        header('Location: ../views/Artwork/view.php?errorMssg=' . urlencode($Artwork) . '&comments=' . urlencode($AllComment));
 
     }
 
-    public function AddComment(){
+    public function AddComment()
+    {
 
         $Comment_data = array();
-        $Comment_data['idArtwork']=$_POST['idArtwork'];
-        $Comment_data['comment']=$_POST['comment'];
-        
+        $Comment_data['idArtwork'] = $_POST['idArtwork'];
+        $Comment_data['comment'] = $_POST['comment'];
 
-          $Artwork =$_POST['idArtwork'];
 
-          $this->modelComment->AddComment($Comment_data);
-                    
-          $this->view($Artwork);
+        $Artwork = $_POST['idArtwork'];
+
+        $this->modelComment->AddComment($Comment_data);
+
+        $this->view($Artwork);
 
     }
 
-    public function UpdateComment(){
-      
-        session_start(); 
-        $Comment_data = array();
-        $Comment_data['id_comment']=$_POST['id_comment'];
-        $Comment_data['comment']=$_POST['comment'];
+    public function UpdateComment()
+    {
 
-        $Artwork = $_SESSION['idArtwork'] ;
+        session_start();
+        $Comment_data = array();
+        $Comment_data['id_comment'] = $_POST['id_comment'];
+        $Comment_data['comment'] = $_POST['comment'];
+
+        $Artwork = $_SESSION['idArtwork'];
 
         $this->modelComment->UpdateComment($Comment_data);
 
         $this->view($Artwork);
 
     }
-
-    public function like(){
-        session_start();
-        $Artwork = $_SESSION['idArtwork'] ;
-        $this->modelVote->like();
-        $this->view($Artwork);
-    }
-
-    public function dislike(){
-        session_start();
-        $Artwork = $_SESSION['idArtwork'] ;
-        $this->modelVote->dislike();
-        $this->view($Artwork);
-    }
-
-    public function exist(){
-        session_start();
-        return $this->modelVote->exist();
-    }
 }
-
 
 ?>
