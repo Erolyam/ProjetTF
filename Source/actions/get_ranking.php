@@ -1,6 +1,6 @@
 <?php
 require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).
-    '/ProjetTF/Source/controllers\Ranking_controller.php';
+    '/ProjetTF/Source/controllers/Ranking_controller.php';
 require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).
     '/ProjetTF/Source/controllers/opCategorieController.php';
 $r = new \controllers\Ranking_controller(true);
