@@ -30,8 +30,8 @@ class opCategorieModel
 
         if (!empty($toAdd)) { 
          
-            $sql = "INSERT INTO Artwork(title,date,description,category_idCategory,owner_idUser) 
-                             VALUES ('".$toAdd['title']."','".date('Y-m-d')."','".$toAdd['description']."','".$toAdd['category']."','".$_SESSION['idUser']."')";
+            $sql = "INSERT INTO Artwork(title,date,description,artwork_picture,category_idCategory,owner_idUser) 
+                             VALUES ('".$toAdd['title']."','".date('Y-m-d')."','".$toAdd['description']."','".$toAdd['photo']."','".$toAdd['category']."','".$_SESSION['idUser']."')";
      
             return $this->db->query($sql);
         }

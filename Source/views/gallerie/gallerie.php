@@ -44,9 +44,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $data['idArtwork']; ?>">
                         <div class="portfolio-thumb">
-                     
-                        <img src="../../assets/bsGallerie/image/test.png" class="img-responsive" alt="Portfolio"> 
-                    
+                        <img src="<?php echo $data['artwork_picture']; ?>" class="img-responsive" alt="Portfolio">
                             <div class="portfolio-overlay">
                                 <div class="portfolio-item">
                                     <h3><?php echo $data['title'] ?></h3>

@@ -3,7 +3,6 @@ if(!isset($_SESSION['role'])){
     header("Location: ../errors/403.php");
     die();
 }?>
-<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/addArtwork.php'; ?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/listeCategorieForArtwork.php'; ?>
 
 

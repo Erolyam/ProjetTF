@@ -49,7 +49,7 @@ class User_controller
             if (isset($_FILES['photo'])) {
                 $destination = str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/images/userPhoto_' . $user_data['username'];
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination)) {
-                    $user_data['photo'] = $destination;
+                    $user_data['photo'] = "../../images/userPhoto_".$user_data['username'];
                     if ($this->model->register($user_data))
                         $_SESSION['message'] = 'Utilisateur ajouté correctement';
                     else
