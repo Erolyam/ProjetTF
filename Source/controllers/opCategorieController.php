@@ -10,10 +10,9 @@ class opCategorieController
 {
     private $model;
     private $validation;
-    //D:\xampp\htdocs\
     // constructeur; pour le test mode $s est false
     function __construct($s) {
-        session_start();
+        //session_start();
         // connecting to model
         if($s){
             require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/opCategorieModel.php';

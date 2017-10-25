@@ -1,6 +1,6 @@
 <?php 
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\AllArtwork.php'; 
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\oeuvre.php'; ?>
+include '../../actions/AllArtwork.php';
+include '../../actions/oeuvre.php'; ?>
 <?php include('../templates/header.php');?>
 
 <div class="row">
