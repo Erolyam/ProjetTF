@@ -1,7 +1,5 @@
-<?php include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
-    '/ProjetTF/Source/views/templates/header.php';
-include str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
-    '/ProjetTF/Source/actions/get_ranking.php'; ?>
+<?php include '../templates/header.php';
+include '../../actions/get_ranking.php'; ?>
 
     <!DOCTYPE html>
     <html lang="fr">

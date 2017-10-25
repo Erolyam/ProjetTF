@@ -1,6 +1,6 @@
 <?php include('../templates/header.php');?><?php
 require_once '../../models/DB_Connection.php';
-include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/vote_exists.php';
+include '../../actions/vote_exists.php';
 
   $conn = new \models\DB_Connection();
         $db = $conn->connect();

@@ -7,7 +7,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role']!="ADMIN"){
 <form enctype="multipart/form-data" action="../../actions/opCategorie.php" method="post">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<h2 class="text-center">Ajouter une catégorie</h1>
+			<h2 class="text-center">Ajouter une catégorie</h2>
 
 			<div class="form-group">
 				<label>Nom </label>
