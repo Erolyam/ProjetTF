@@ -1,4 +1,3 @@
 <?php
-	header('Location: actions/user_register.php');
+	header('Location: views/gallerie/gallerie.php');
 	exit;
-?>

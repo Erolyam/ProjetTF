@@ -1,5 +1,5 @@
-<?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\views\templates\header.php';
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\oeuvre.php'; ?>
+<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/oeuvre.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,31 +23,30 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
             <th>Date</th>
             <th>Description</th>
             <th>Catégorie</th>
+            <th>Supprimer</th>
         </tr>
         </thead>
         <tbody>
-
-
-        <?php
-
-        foreach  ($listOeuvre as $oeuvre_data) {
-
-            ?>
-
+        <?php foreach  ($listOeuvre as $oeuvre_data) { ?>
             <tr>
-                <td> <?php echo $oeuvre_data['title'] ?> </td>
+                <td>
+                    <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $oeuvre_data['idArtwork']; ?>"><?php echo $oeuvre_data['title'] ?></a>
+                </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
+                <td>
+                    <p>
+                        <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-primary btn-block">Supprimer oeuvre</a>
+                    </p>
+                </td>
             </tr>
-            <?php
-        }?>
+            <?php } ?>
         </tbody>
     </table>
 </div>
-
+<p> <a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a> </p> 
 </body>
 </html>
-
 
 <?php include('../templates/footer.php');?>

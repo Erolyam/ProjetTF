@@ -1,5 +1,7 @@
 <?php include('../templates/header.php');?><?php
 require_once '../../models/DB_Connection.php';
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/vote_exists.php';
+
   $conn = new \models\DB_Connection();
         $db = $conn->connect();
 
@@ -26,16 +28,33 @@ foreach  ( $Artworks as $Artwork) {
     </div>
 	
 	 </div>
-
-
-
 	
-<?php 
+<?php
 
-if(isset($_SESSION['username'])){ 
+    if(isset($_SESSION['username'])){
 //if($this->session->userdata('idUser') != $post['owner_idUser'] ) :  ?>
-	<h3>Ajouter un commentaire</h3>
 
+
+    <form action="../../actions/vote.php" method="post">
+
+
+        <?php if($exist==-1){?>
+        <button class="btn btn-success" name="like" type="submit">like</button>
+        <button class="btn btn-danger" name="dislike" type="submit">dislike</button>
+        <?php }?>
+
+        <?php if($exist==-0){?>
+            <button class="btn btn-success" name="like" type="submit">like</button>
+            <button class="btn btn-danger" name="dislike" type="submit" disabled="disabled">dislike</button>
+        <?php }?>
+
+        <?php if($exist==1){?>
+            <button class="btn btn-success" name="like" type="submit" disabled="disabled">like</button>
+            <button class="btn btn-danger" name="dislike" type="submit">dislike</button>
+        <?php }?>
+
+    </form>
+	<h3>Ajouter un commentaire</h3>
 	<form enctype="multipart/form-data" action="../../actions/AllArtwork.php" method="post">
 	<div class="form-group">
 		<textarea name="comment" class="form-control"></textarea>
@@ -47,8 +66,12 @@ if(isset($_SESSION['username'])){
 <?php 
 }else { ?>
  <form   action="../users/login.php">
-		<input type="submit" value="Add commentaire" name="AddComment" class="btn btn-danger">
+		<input type="submit" value="Add commentaire" name="AddComment" class="btn btn-info">
 </form>
+    <form   action="../users/login.php">
+        <input type="submit" value="like" name="like" class="btn btn-success">
+        <input type="submit" value="dislike" name="dislike" class="btn btn-danger">
+    </form>
 <?php }	}
  ?>
 <h3>Commentaires postés </h3>
@@ -70,7 +93,7 @@ if(isset($_SESSION['username'])){
                 
                     <a class="btn btn-success pull-left" href="/comments/delete/<?php echo $comment['id_comment'] ?>">Supprimer</a>
             <input type="hidden" name="id_comment" value="<?php echo $comment['id_comment'] ?>">
-                <input type="submit" value="Modfier" style="display: none;"  name="edit" class="btn btn-danger">
+                <input type="submit" value="Modfier" style="display: none;"  name="edit" class="btn btn-info">
             </form>
         <?php
 }
@@ -89,12 +112,7 @@ if(isset($_SESSION['username'])){
 		</div>
 	<?php } ?>
 
-
-
-
-
 <hr>
-
 
 <?php include('../templates/footer.php');?>
 

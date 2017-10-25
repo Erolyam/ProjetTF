@@ -29,16 +29,16 @@ class User_model
     public function register($user_data){
         // Insert user
         $sql = "INSERT INTO User(email, username, password, name, lastname, age, profile_picture) 
-                         VALUES ('".$user_data[email]."','".$user_data[username].
+				VALUES ('".$user_data[email]."','".$user_data[username].
                                     "','".$user_data[password]."','".$user_data[name].
-                                    "','".$user_data[lastname]."',".$user_data[age].",null)";
+                                    "','".$user_data[lastname]."',".$user_data[age].",'".$user_data['photo']."')";
         return $this->db->query($sql);
     }
 
    // Log user in
         public function login($username, $password){
             // Validate
-           $sql = "SELECT * FROM user where username ='".$username ."' and password = '".$password."' ";
+           $sql = "SELECT * FROM User where username ='".$username ."' and password = '".$password."' ";
          
             $result = $this->db->query($sql);
 
@@ -52,14 +52,14 @@ class User_model
 
     function check_username_exists($username)
     {
-        $sql = "SELECT * FROM user WHERE username = '".$username."'";
+        $sql = "SELECT * FROM User WHERE username = '".$username."'";
         $result = $this->db->query($sql);
         return $result->num_rows > 0;
     }
 
     function check_email_exists($email)
     {
-        $sql = "SELECT * FROM user WHERE email = '".$email."'";
+        $sql = "SELECT * FROM User WHERE email = '".$email."'";
         $result = $this->db->query($sql);
         return $result->num_rows > 0;
     }

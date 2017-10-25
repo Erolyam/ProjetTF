@@ -1,5 +1,5 @@
-<?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\views\templates\header.php';
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\oeuvrePerCategory.php'; ?>
+<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/oeuvrePerCategory.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,14 +26,7 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
         </tr>
         </thead>
         <tbody>
-
-
-        <?php
-
-        foreach  ($listOeuvrePerCategory as $oeuvre_data) {
-
-            ?>
-
+        <?php foreach  ($listOeuvrePerCategory as $oeuvre_data) { ?>
             <tr>
                 <td> <?php echo $oeuvre_data['title'] ?> </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>

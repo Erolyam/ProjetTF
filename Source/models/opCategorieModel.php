@@ -26,13 +26,38 @@ class opCategorieModel
         $this->db->close();
     }
 
+    public function addArtwork($toAdd){
+
+        if (!empty($toAdd)) { 
+         
+            $sql = "INSERT INTO Artwork(title,date,description,artwork_picture,category_idCategory,owner_idUser) 
+                             VALUES ('".$toAdd['title']."','".date('Y-m-d')."','".$toAdd['description']."','".$toAdd['photo']."','".$toAdd['category']."','".$_SESSION['idUser']."')";
+     
+            return $this->db->query($sql);
+        }
+    }
+
+
     public function addCategorie($toAdd){
         // Insert user
         $sql = "INSERT INTO Category(name) 
                          VALUES ('".$toAdd['nomCat']."')";
         return $this->db->query($sql);
     }
-
     
+    public function deleteCategories($idCategory){
+        $sql = 'DELETE FROM Category WHERE idCategory ='.$idCategory;
+            echo $sql;
+        return $result = $this->db->query($sql);
+    }
+
+    public function getAllCategories(){
+        $sql = "SELECT * FROM Category";
+        $result = $this->db->query($sql);
+        return $result; 
+    }
+
+
+
 
   }

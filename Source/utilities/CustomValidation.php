@@ -23,6 +23,14 @@ class CustomValidation
         return $this->name_regex_check($email) && strlen($email)<=45;
     }
 
+    public function validate_title($email){
+        return strlen($email)<=45;
+    }
+
+    public function validate_description($description){
+        return strlen($description)<=2000;
+    }
+
     public function validate_email($email){
         return $this->email_regex_check($email) && strlen($email)<=45;
     }

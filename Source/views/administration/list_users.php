@@ -1,5 +1,10 @@
-<?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\views\templates\header.php';
-include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\administration.php'; ?>
+<?php
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
+if(!isset($_SESSION['role']) || $_SESSION['role']!="ADMIN"){
+    header("Location: ../errors/403.php");
+    die();
+}
+include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/administration.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,10 +38,6 @@ include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\ac
 
 
 <?php
-//$array_user = !empty($_GET['envoiInfo']) ? $GET['envoiInfo'] : NULL;
-
-//$array_user = unserialize(stripslashes($_GET['envoiInfo']));
-
 foreach  ($listUsers as $user_data) {    
 
 ?>
