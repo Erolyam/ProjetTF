@@ -8,12 +8,7 @@
     <script src="../../assets/bsGallerie/js/jquery.js"></script>
 <script src="../../assets/bsGallerie/js/bootstrap.min.js"></script>
 <script src="../../assets/bsGallerie/js/custom.js"></script>
- <link rel="stylesheet" href="../../assets/bsGallerie/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/bsGallerie/css/font-awesome.min.css">
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="../../assets/bsGallerie/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 	</head>
 	<body>
@@ -26,9 +21,11 @@
           <ul class="nav navbar-nav">
              <li><a href="../gallerie/gallerie.php">Galerie</a></li>
              <li><a href="../ranking/ranking.php">Classement</a></li>
+             <?php  if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){   ?>
              <li><a href="../administration/list_users.php">Administration</a></li>
+             <?php }  ?>
              <li><a href="../oeuvre/listing.php">Oeuvres</a></li>
-             <li><a href="../oeuvre/listingPerCategory.php">Oeuvres par catégorie</a></li>
+             <li><a href="../artwork/">Oeuvres par catégorie</a></li>
              <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
           </ul>
 
@@ -74,4 +71,9 @@
             echo '<p class="alert alert-warning" name="error">'.$_SESSION['error'].'</p>';
             unset($_SESSION['error']);
         }
+        if(isset($_SESSION['login_failed']))  {
+        echo '<p class="alert alert-danger">'.$_SESSION['login_failed'].'</p>'; 
+        unset($_SESSION['login_failed']);
+      }
+
         ?>

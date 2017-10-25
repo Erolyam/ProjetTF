@@ -101,17 +101,16 @@ class User_controller
         return $flag;
     }
 
+
     // Log in user
     public function login()
     {
-        $password = hash('sha256', $_POST['password']);
-        //$password = $_POST['password'];
+        $user_Login = array();
+        $password = $_POST['password'];
         $username = $_POST['username'];
 
 
-        //  $password = hash('sha256',$password );
-        // Get and encrypt the password
-        // Login user
+        //$password = hash('sha256',$password );
         $user_Login = $this->model->login($username, $password);
 
         // echo $idUser;modelArwork
@@ -123,39 +122,34 @@ class User_controller
                 $role = $row[6];
             }
 
-            // session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['idUser'] = $idUser;
-            $_SESSION['role'] = $role;
-            $allArtwork = $this->modelArwork1->getAllArtworks();
+
+ // session_start(); 
+                       $_SESSION['username'] = $username;
+                       $_SESSION['idUser'] = $idUser;
+                       $_SESSION['role'] = $role;
+                       $allArtwork = $this->modelArwork1->getAllArtworks();
+           
 
 
-            $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);
-            // $gg = $user_Login->num_rows;
-            $allArtwork = serialize($allArtwork);
-
-            //$tab = array("prenom" => "Hugo", "nom" => "ETIEVANT", "age" => 1980 );
-            //<a href="test.php3?str=".addslashes(urlencode(serialize($tab)))."">
-            // $this->session->set_userdata($user_data);
-
-            // Set message
-            //$this->session->set_flashdata('user_loggedin', 'You are now logged in');
-            // json_encode($result);
-
-            header('Location: ../views/gallerie/gallerie.php');
-
-            //   while ($row = mysql_fetch_array($result)) {
-            //       echo("ID : %s  Nom : %s".$row[0].$row[1]);
-        } //}
+        $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);        
+         $allArtwork = serialize($allArtwork);
 
 
-        else {
-            // Set message
-            $_SESSION['error'] = 'Login incorrect';
-            header('Location: ../views/users/login.php');
+                    
+                    header('Location: ../views/gallerie/gallerie.php');
+
+                                    }
+                  
+                  
+                  
+              else {
+                 $_SESSION['login_failed'] = 'Login incorrect';
+                
+                    header('Location: ../views/users/login.php');
+                }       
+            
         }
 
-    }
 
 
     public function logout()
