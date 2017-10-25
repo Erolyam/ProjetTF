@@ -11,9 +11,10 @@ class Artwork_controller1
     function __construct($s) {
         // connecting to model
         if($s){
-            require_once '../models/Artwork_Model1.php';
-             require_once '../models/Comment_Model.php';
-            require_once '../utilities/CustomValidation.php';
+      require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Artwork_Model1.php';
+          require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Comment_Model.php';
+          require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\utilities\CustomValidation.php';
+           
         }
         $this->modelComment = new \models\Comment_Model();
         $this->modelArwork = new \models\Artwork_Model1();
@@ -38,12 +39,35 @@ class Artwork_controller1
            
                           $AllComment = serialize($AllComment);
                     
-
-header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
+            //return true;
+            header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
 //    header('Location: ../views/Artwork/view.php?AllComment = '.urlencode($AllComment));
-            
+            return true;
         }
+ public function getAllcategotie(){
 
+ $getAllCategorie =   $this->modelArwork->getAllCategorie();
+
+        return  $getAllCategorie ;
+ }
+
+
+      public function getAllcategotieByid($iDcat){
+
+           $Artworkss =   $this->modelArwork->getAllArtworksByCate($iDcat);
+
+             $Artwork = $Artworkss->fetch_all(MYSQLI_ASSOC);       
+           
+                          $Artworks = serialize($Artwork);
+          if($Artworkss->num_rows >0 ){
+
+            header('Location: ../views/Artwork/index.php?errorMssg='.urlencode($Artworks));
+            return true;
+          }else {
+            return false;}
+   
+        
+ }
 
 
 
@@ -61,7 +85,7 @@ header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&co
           $this->modelComment->AddComment($Comment_data);
                     
           $this->view($Artwork);
-
+       return true;
         }
 
         public function UpdateComment(){

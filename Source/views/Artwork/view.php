@@ -16,10 +16,6 @@ foreach  ( $Artworks as $Artwork) {
       
 ?>
 
-
-
-
-
 <small class="post-date">Ajouté le: <?php echo $Artwork['date']; ?></small><br>
 
 <div class="post-body">

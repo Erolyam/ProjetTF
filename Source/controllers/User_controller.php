@@ -105,14 +105,12 @@ class User_controller
 
 
         $user_Login = array();
-         $password =hash('sha256', $_POST['password']);
-        //$password = $_POST['password'];
-        $username = $_POST['username'];
+         //$password =hash('sha256', $_POST['password']);
+        $password = $_POST['password'];
+         $username = $_POST['username'];
 
 
-              //  $password = hash('sha256',$password );
-                // Get and encrypt the password
-                // Login user
+             
                 $user_Login = $this->model->login($username, $password);
 
                // echo $idUser;modelArwork
@@ -134,25 +132,19 @@ class User_controller
            // $gg = $user_Login->num_rows;   
          $allArtwork = serialize($allArtwork);
 
-//$tab = array("prenom" => "Hugo", "nom" => "ETIEVANT", "age" => 1980 );
-         //<a href="test.php3?str=".addslashes(urlencode(serialize($tab)))."">
-                   // $this->session->set_userdata($user_data);
 
-                    // Set message
-                    //$this->session->set_flashdata('user_loggedin', 'You are now logged in');
-                   // json_encode($result);
                     
                     header('Location: ../views/gallerie/gallerie.php');
 
-                 //   while ($row = mysql_fetch_array($result)) {
-                   //       echo("ID : %s  Nom : %s".$row[0].$row[1]);
+                     echo("ID : %s  Nom : %s".$row[0].$row[1]);
                                     }
-                  //} 
+                  
                   
                   
               else {
-                    // Set message
-                    //$this->session->set_flashdata('login_failed', 'Login incorrect');
+                 $_SESSION['login_failed'] = 'Login incorrect';
+                    header('Location: ../views/users/login.php');
+                 
 
                  //   redirect('users/login');
                 }       

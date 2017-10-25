@@ -28,11 +28,9 @@ class Comment_Model {
          $result = $this->db->query($sql);
 
           //echo  $result;
-          if($result){
+        
                 return $result;
-            } else {
-                return false;
-            }
+           
 
            
         }

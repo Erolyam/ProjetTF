@@ -2,7 +2,12 @@
 <?php include str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\actions\gallerie_action.php'; ?>
 
   
+<link rel="stylesheet" href="../../assets/bsGallerie/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bsGallerie/css/font-awesome.min.css">
 
+    
+    <link rel="stylesheet" href="../../assets/bsGallerie/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 <!-- PRE LOADER -->
 
 <div class="preloader">

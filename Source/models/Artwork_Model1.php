@@ -27,11 +27,22 @@ public function getAllArtworks()
          $result = $this->db->query($sql);
 
           //echo  $result;
-          if($result){
+         
                 return $result;
-            } else {
-                return false;
-            }
+            
+
+       
+    }
+
+    public function getAllArtworksByCate($id)
+    {
+        $sql  = "select * from Artwork where category_idCategory =".$id;
+
+         $result = $this->db->query($sql);
+
+         
+                return $result;
+           
 
        
     }
@@ -43,11 +54,21 @@ public function getAllArtworks()
          $result = $this->db->query($sql);
 
           //echo  $result;
-          if($result){
+         
                 return $result;
-            } else {
-                return false;
-            }
+           
+    }
+    
+public function getAllCategorie()
+    {
+        $sql  = "select * from category";
+
+         $result = $this->db->query($sql);
+
+          //echo  $result;
+         
+                return $result;
+          
 
        
     }

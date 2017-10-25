@@ -19,4 +19,18 @@ class User_model extends atoum
             ->isIdenticalTo(true);
         return 0;
     }
+
+    public function test_login()
+    {
+        $this
+            ->if($m = new \models\User_model())
+            ->and($d=$m->login('bilal', 'bilal'))
+            ->then
+            ->integer($d->num_rows)
+            ->isEqualTo(1);
+        return 0;
+    }
+
+
+    
 }
