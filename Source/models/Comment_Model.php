@@ -47,7 +47,7 @@ class Comment_Model {
 
          public function UpdateComment($Comment_data){
                   session_start(); 
- $sql = "update Comment  set comment = '".$Comment_data[comment]."' where id_comment = '".$Comment_data[id_comment].
+ $sql = "update Comment  set comment = '".$Comment_data[comment]."' where idComment = '".$Comment_data[idComment].
                                     "' ";
         return $this->db->query($sql);
            

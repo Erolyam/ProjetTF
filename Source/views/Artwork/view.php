@@ -86,13 +86,13 @@ foreach  ( $Artworks as $Artwork) {
          ?>
 
            <form enctype="multipart/form-data" action="../../actions/AllArtwork.php" method="post">
-                    <textarea name="comment"   disabled="true" id="<?php echo 'dd'.$comment['id_comment'] ?>" class="form-control"  ><?php echo $comment['comment'];  ?>
+                    <textarea name="comment"   disabled="true" id="<?php echo 'dd'.$comment['idComment'] ?>" class="form-control"  ><?php echo $comment['comment'];  ?>
                     </textarea>
-      <input type="button"  name="bouton" value="Editer" class="btn btn-warning" onclick="<?php echo 'dd'.$comment['id_comment']; ?>.disabled = false; edit.style.display='inline';">
+      <input type="button"  name="bouton" value="Editer" class="btn btn-warning" onclick="<?php echo 'dd'.$comment['idComment']; ?>.disabled = false; edit.style.display='inline';">
 
                 
-                    <a class="btn btn-success pull-left" href="/comments/delete/<?php echo $comment['id_comment'] ?>">Supprimer</a>
-            <input type="hidden" name="id_comment" value="<?php echo $comment['id_comment'] ?>">
+                    <a class="btn btn-success pull-left" href="/comments/delete/<?php echo $comment['idComment'] ?>">Supprimer</a>
+            <input type="hidden" name="idComment" value="<?php echo $comment['idComment'] ?>">
                 <input type="submit" value="Modfier" style="display: none;"  name="edit" class="btn btn-info">
             </form>
         <?php

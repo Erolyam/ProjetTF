@@ -98,7 +98,7 @@ class Artwork_controller1
 
         session_start();
         $Comment_data = array();
-        $Comment_data['id_comment'] = $_POST['id_comment'];
+        $Comment_data['idComment'] = $_POST['idComment'];
         $Comment_data['comment'] = $_POST['comment'];
 
         $Artwork = $_SESSION['idArtwork'];

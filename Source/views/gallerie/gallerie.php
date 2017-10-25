@@ -1,7 +1,7 @@
 <?php include('../templates/header.php');?>
 <?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/gallerie_action.php'; ?>
 
-  
+ <?php echo getcwd(); ?>
 <link rel="stylesheet" href="../../assets/bsGallerie/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/bsGallerie/css/font-awesome.min.css">
 
