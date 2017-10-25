@@ -7,66 +7,67 @@
  */
 
 namespace models\tests\units;
+
 use \atoum;
+
 class Artwork_Model1 extends atoum
 {
-   public function test_getAllArtworks()
+    public function test_getAllArtworks()
     {
         $this
             ->if($m = new \models\Artwork_Model1())
-            ->and($d=$m->getAllArtworks())
+            ->and($d = $m->getAllArtworks())
             ->then
             ->integer($d->num_rows)
-           // ->isNotNull();
+            // ->isNotNull();
             ->isNotNull();
         return 0;
     }
 
- public function test_getAllArtworksByCate()
+    public function test_getAllArtworksByCate()
     {
 
-       $this
+        $this
             ->if($m = new \models\Artwork_Model1())
-            ->and($d=$m->getAllArtworksByCate("1"))
+            ->and($d = $m->getAllArtworksByCate("1"))
             ->then
             ->integer($d->num_rows)
             ->isNotEqualTo(0);
-           // ->isEqualTo(1);
-    
+        // ->isEqualTo(1);
+
 
     }
-   
+
 
     public function test_getArtwork()
     {
 
-       $this
+        $this
             ->if($m = new \models\Artwork_Model1())
-            ->and($d=$m->getArtwork("1"))
+            ->and($d = $m->getArtwork("1"))
             ->then
             ->integer($d->num_rows)
             //->isNotNull();
             ->isNotEqualTo(0);
-           // ->isEqualTo(1);
-    
+        // ->isEqualTo(1);
+
 
     }
 
-      public function test_getAllCategorie()
+    public function test_getAllCategorie()
     {
 
-       $this
+        $this
             ->if($m = new \models\Artwork_Model1())
-            ->and($d=$m->getAllCategorie())
+            ->and($d = $m->getAllCategorie())
             ->then
             ->integer($d->num_rows)
             //->isNotNull();
             ->isNotEqualTo(0);
-           // ->isEqualTo(1);
-    
+        // ->isEqualTo(1);
+
 
     }
 
 
-    
 }

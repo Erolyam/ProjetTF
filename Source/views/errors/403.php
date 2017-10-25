@@ -1,4 +1,4 @@
-<?php include '../templates/header.php';?>
+<?php include '../templates/header.php'; ?>
     <div class="container">
         <div class="row">
             <div class="error-template">
@@ -14,4 +14,4 @@
             </div>
         </div>
     </div>
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

@@ -5,30 +5,32 @@
  * Date: 13/10/2017
  * Time: 12:42 AM
  */
+
 namespace controllers;
 class addArtworkController
 {
     private $model;
     private $validation;
 
-    function __construct($s) {
-      if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }        
+    function __construct($s)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         // connecting to model
-        if($s){
-            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/opCategorieModel.php';
-            require_once str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/utilities/CustomValidation.php';
+        if ($s) {
+            require_once __DIR__ . '../../models/opCategorieModel.php';
+            require_once __DIR__ . '../../utilities/CustomValidation.php';
         }
         $this->model = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();
     }
 
-  	public function getAllCategoriesController(){       
-      $user_data = $this->model->getAllCategories();
-      $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
-      return $user_data;       
+    public function getAllCategoriesController()
+    {
+        $user_data = $this->model->getAllCategories();
+        $user_data = $user_data->fetch_all(MYSQLI_ASSOC);
+        return $user_data;
     }
 
 
@@ -43,17 +45,16 @@ class addArtworkController
             die();//To finish function after header redirection
         } else {
             if (isset($_FILES['photo'])) {
-                $destination = str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/images/artworkPhoto_' .md5($artwork_data['title']);
+                $destination = str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/images/artworkPhoto_' . md5($artwork_data['title']);
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination) || $_FILES["photo"]['name'][0] == '') {
-                    if( $_FILES["photo"]['name'][0] == '')
+                    if ($_FILES["photo"]['name'][0] == '')
                         $artwork_data['photo'] = "";
                     else
-                        $artwork_data['photo'] = "../../images/artworkPhoto_".md5($artwork_data['title']);
-                    if ($this->model->addArtwork($artwork_data)){
+                        $artwork_data['photo'] = "../../images/artworkPhoto_" . md5($artwork_data['title']);
+                    if ($this->model->addArtwork($artwork_data)) {
                         $_SESSION['message'] = 'Oeuvre ajoutée correctement';
                         header("Location: ../views/gallerie/gallerie.php");
-                    }
-                    else {
+                    } else {
                         $_SESSION['error'] = 'Erreur de BD: ';
                         header("Location: ../views/Artwork/addArtwork.php");
                     }

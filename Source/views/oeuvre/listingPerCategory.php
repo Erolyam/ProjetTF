@@ -26,7 +26,7 @@ include '../../actions/oeuvrePerCategory.php'; ?>
         </tr>
         </thead>
         <tbody>
-        <?php foreach  ($listOeuvrePerCategory as $oeuvre_data) { ?>
+        <?php foreach ($listOeuvrePerCategory as $oeuvre_data) { ?>
             <tr>
                 <td> <?php echo $oeuvre_data['title'] ?> </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
@@ -34,7 +34,7 @@ include '../../actions/oeuvrePerCategory.php'; ?>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
             </tr>
             <?php
-        }?>
+        } ?>
         </tbody>
     </table>
 </div>
@@ -43,4 +43,4 @@ include '../../actions/oeuvrePerCategory.php'; ?>
 </html>
 
 
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

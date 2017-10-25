@@ -1,68 +1,72 @@
 <?php
+
 namespace models;
-class Vote_model{
+class Vote_model
+{
 
     private $db;
 
     // constructor
-    function __construct() {
+    function __construct()
+    {
         require_once 'DB_Connection.php';
         // connecting to database
         $conn = new \models\DB_Connection();
         $this->db = $conn->connect();
         if (!$this->db) {
-            die("Connection failed: ".mysqli_connect_error());
+            die("Connection failed: " . mysqli_connect_error());
         }
     }
+
 // destructor
-    function __destruct() {
+    function __destruct()
+    {
         $this->db->close();
     }
 
-    public function like($idUser,$Artwork){
+    public function like($idUser, $Artwork)
+    {
 
-        $tmp = $this->exist($idUser,$Artwork);
-        if ($tmp==false){
-            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$idUser."', '".$Artwork."', '1', '".date('Y-m-d H:i:s')."');";
-
-            return $this->db->query($sql);
-        }
-
-        else{
-            $sql = "UPDATE `vote` SET `like` = 1 WHERE `User_idUser` = ".$idUser." AND `Artwork_idArtwork` = ".$Artwork.";";
+        $tmp = $this->exist($idUser, $Artwork);
+        if ($tmp == false) {
+            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('" . $idUser . "', '" . $Artwork . "', '1', '" . date('Y-m-d H:i:s') . "');";
 
             return $this->db->query($sql);
-        }
-
-    }
-
-    public function dislike($idUser,$Artwork){
-
-        $tmp = $this->exist($idUser,$Artwork);
-        if ($tmp==false){
-            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('".$idUser."', '".$Artwork."', '0', '".date('Y-m-d H:i:s')."');";
-
-            return $this->db->query($sql);
-        }
-
-        else{
-            $sql = "UPDATE `vote` SET `like` = 0 WHERE `User_idUser` = ".$idUser." AND `Artwork_idArtwork` = ".$Artwork.";";
+        } else {
+            $sql = "UPDATE `vote` SET `like` = 1 WHERE `User_idUser` = " . $idUser . " AND `Artwork_idArtwork` = " . $Artwork . ";";
 
             return $this->db->query($sql);
         }
 
     }
 
-    public function exist($idUser,$Artwork){
+    public function dislike($idUser, $Artwork)
+    {
+
+        $tmp = $this->exist($idUser, $Artwork);
+        if ($tmp == false) {
+            $sql = "INSERT INTO `vote` (`User_idUser`, `Artwork_idArtwork`, `like`, `date`) VALUES ('" . $idUser . "', '" . $Artwork . "', '0', '" . date('Y-m-d H:i:s') . "');";
+
+            return $this->db->query($sql);
+        } else {
+            $sql = "UPDATE `vote` SET `like` = 0 WHERE `User_idUser` = " . $idUser . " AND `Artwork_idArtwork` = " . $Artwork . ";";
+
+            return $this->db->query($sql);
+        }
+
+    }
+
+    public function exist($idUser, $Artwork)
+    {
 
 
-        $sql = "select * from vote WHERE User_idUser = ".$idUser." AND Artwork_idArtwork =".$Artwork;
+        $sql = "select * from vote WHERE User_idUser = " . $idUser . " AND Artwork_idArtwork =" . $Artwork;
 
         $res = $this->db->query($sql);
 
         $tmp = false;
 
-        while($row=$res->fetch_array()){
+        while ($row = $res->fetch_array()) {
             $tmp = $row;
         }
 
@@ -72,12 +76,13 @@ class Vote_model{
 
     }
 
-    public function existDetail($idUser,$Artwork){
+    public function existDetail($idUser, $Artwork)
+    {
 
         $tmp = -1;
 
-        if($this->exist($idUser,$Artwork)){
-            $sql = "select `like` from vote WHERE User_idUser = ".$idUser." AND Artwork_idArtwork =".$Artwork;
+        if ($this->exist($idUser, $Artwork)) {
+            $sql = "select `like` from vote WHERE User_idUser = " . $idUser . " AND Artwork_idArtwork =" . $Artwork;
 
             $res = $this->db->query($sql);
 
@@ -86,8 +91,7 @@ class Vote_model{
             }
 
             return $tmp;
-        }
-        else{
+        } else {
             return $tmp;
         }
     }

@@ -1,56 +1,62 @@
 <?php include '../templates/header.php';
-if(!isset($_SESSION['role']) || $_SESSION['role']!="ADMIN"){
+if (!isset($_SESSION['role']) || $_SESSION['role'] != "ADMIN") {
     header("Location: ../errors/403.php");
     die();
 }
-include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/listeCategorie.php'; ?>
+include '../../actions/listeCategorie.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-  <body>
+<body>
 
-    <div class="container">
-      <h2>Liste des catégories</h2>
-      <p>Il s'agit de la liste des catégories.</p>            
-      <table class="table table-bordered">
+<div class="container">
+    <h2>Liste des catégories</h2>
+    <p>Il s'agit de la liste des catégories.</p>
+    <table class="table table-bordered">
         <thead>
-          <tr>
+        <tr>
             <th>Id</th>
             <th>Nom</th>
             <th>Supprimer</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
 
-    <?php foreach  ($listCategories as $user_data) { ?>
-          <tr>
+        <?php foreach ($listCategories
+
+        as $user_data) { ?>
+        <tr>
             <td> <?php echo $user_data['idCategory'] ?> </td>
             <td> <?php echo $user_data['name'] ?> </td>
-            <td>  
-              <p>
-                <a href="../../actions/deleteCategory.php?idCategory=<?php echo $user_data['idCategory']?>" class="btn btn-primary btn-block">Supprimer la catégorie</a>
-              </p> 
+            <td>
+                <p>
+                    <a href="../../actions/deleteCategory.php?idCategory=<?php echo $user_data['idCategory'] ?>"
+                       class="btn btn-primary btn-block">Supprimer la catégorie</a>
+                </p>
             </td>
             <?php
-                }?>      
-          </tr>
+            } ?>
+        </tr>
         </tbody>
-      </table>
-    </div>
+    </table>
+</div>
 
-    <?php if (isset($_POST['idCategory'])) { echo ($_POST['idCategory']);} ?>
+<?php if (isset($_POST['idCategory'])) {
+    echo($_POST['idCategory']);
+} ?>
 
-    <p> <a href="../opCategorie/opCategorieView.php" class="btn btn btn-success btn-block">Ajouter une nouvelle catégorie</a> </p> 
+<p><a href="../opCategorie/opCategorieView.php" class="btn btn btn-success btn-block">Ajouter une nouvelle catégorie</a>
+</p>
 
-  </body>
+</body>
 </html>
 
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

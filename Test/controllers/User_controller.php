@@ -5,8 +5,11 @@
  * Date: 13/10/2017
  * Time: 3:47 PM
  */
+
 namespace controllers\tests\units;
+
 use \atoum;
+
 class User_controller extends atoum
 {
     public function test_username_exists()

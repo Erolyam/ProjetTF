@@ -1,3 +1,3 @@
 <?php
-	header('Location: views/gallerie/gallerie.php');
-	exit;
+header('Location: views/gallerie/gallerie.php');
+exit;

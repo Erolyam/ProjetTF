@@ -1,33 +1,38 @@
 <?php
+
 namespace models;
 class Admin_model
 {
     private $db;
 
-      function __construct() {
+    function __construct()
+    {
         require_once 'DB_Connection.php';
         // connecting to database
         $conn = new \models\DB_Connection();
         $this->db = $conn->connect();
         if (!$this->db) {
-            die("Connection failed: ".mysqli_connect_error());
+            die("Connection failed: " . mysqli_connect_error());
         }
     }
 
-    function __destruct() {
+    function __destruct()
+    {
         $this->db->close();
     }
-   
 
-    public function getAllUsers(){
+
+    public function getAllUsers()
+    {
         $sql = "SELECT * FROM User";
         $result = $this->db->query($sql);
-        return $result; 
+        return $result;
     }
 
-    public function deleteUsers($idUser){
-        $sql = 'DELETE FROM User WHERE idUser ='.$idUser;
-            echo $sql;
+    public function deleteUsers($idUser)
+    {
+        $sql = 'DELETE FROM User WHERE idUser =' . $idUser;
+        echo $sql;
         return $result = $this->db->query($sql);
     }
 

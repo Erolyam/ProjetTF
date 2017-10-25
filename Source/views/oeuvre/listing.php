@@ -6,10 +6,10 @@ include '../../actions/oeuvre.php'; ?>
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 <body>
 
@@ -27,7 +27,7 @@ include '../../actions/oeuvre.php'; ?>
         </tr>
         </thead>
         <tbody>
-        <?php foreach  ($listOeuvre as $oeuvre_data) { ?>
+        <?php foreach ($listOeuvre as $oeuvre_data) { ?>
             <tr>
                 <td>
                     <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $oeuvre_data['idArtwork']; ?>"><?php echo $oeuvre_data['title'] ?></a>
@@ -36,17 +36,19 @@ include '../../actions/oeuvre.php'; ?>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
                 <td>
-                  <center> <p>
-                        <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-danger">Supprimer oeuvre</a>
-                    </p></center> 
+                    <center><p>
+                            <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork'] ?>"
+                               class="btn btn-danger">Supprimer oeuvre</a>
+                        </p></center>
                 </td>
             </tr>
-            <?php } ?>
+        <?php } ?>
         </tbody>
-    </table><p> <a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a> </p> 
+    </table>
+    <p><a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a></p>
 </div>
 
 </body>
 </html>
 
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

@@ -19,11 +19,9 @@ class User_controller
         session_start();
         // connecting to model
         if ($s) {
-            require_once str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/models/User_model.php';
-            require_once str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/models/Artwork_Model1.php';
-            //require_once '../models/User_model.php';
-            require_once str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/utilities/CustomValidation.php';
-            //require_once '../utilities/CustomValidation.php';
+            require_once __DIR__ . '../../models/User_model.php';
+            require_once __DIR__ . '../../models/Artwork_Model1.php';
+            require_once __DIR__ . '../../utilities/CustomValidation.php';
         }
         $this->model = new \models\User_model();
         $this->modelArwork1 = new \models\Artwork_Model1();
@@ -49,7 +47,7 @@ class User_controller
             if (isset($_FILES['photo'])) {
                 $destination = str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/images/userPhoto_' . $user_data['username'];
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination)) {
-                    $user_data['photo'] = "../../images/userPhoto_".$user_data['username'];
+                    $user_data['photo'] = "../../images/userPhoto_" . $user_data['username'];
                     if ($this->model->register($user_data))
                         $_SESSION['message'] = 'Utilisateur ajouté correctement';
                     else
@@ -108,7 +106,7 @@ class User_controller
         $user_Login = array();
         $password = $_POST['password'];
         $username = $_POST['username'];
-        $password = hash('sha256',$password);
+        $password = hash('sha256', $password);
         $user_Login = $this->model->login($username, $password);
 
         // echo $idUser;modelArwork
@@ -121,33 +119,26 @@ class User_controller
             }
 
 
- // session_start(); 
-                       $_SESSION['username'] = $username;
-                       $_SESSION['idUser'] = $idUser;
-                       $_SESSION['role'] = $role;
-                       $allArtwork = $this->modelArwork1->getAllArtworks();
-           
+            // session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['idUser'] = $idUser;
+            $_SESSION['role'] = $role;
+            $allArtwork = $this->modelArwork1->getAllArtworks();
 
 
-        $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);        
-         $allArtwork = serialize($allArtwork);
+            $allArtwork = $allArtwork->fetch_all(MYSQLI_ASSOC);
+            $allArtwork = serialize($allArtwork);
 
 
-                    
-                    header('Location: ../views/gallerie/gallerie.php');
+            header('Location: ../views/gallerie/gallerie.php');
 
-                                    }
-                  
-                  
-                  
-              else {
-                 $_SESSION['login_failed'] = 'Login incorrect '.$password;
-                
-                    header('Location: ../views/users/login.php');
-                }       
-            
+        } else {
+            $_SESSION['login_failed'] = 'Login incorrect ' . $password;
+
+            header('Location: ../views/users/login.php');
         }
 
+    }
 
 
     public function logout()
