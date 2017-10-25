@@ -11,7 +11,7 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>acceptation</module> <!-- Runs maven on acceptation/pom.xml -->
+        <module>squashTA</module> <!-- Runs maven on squashTA/pom.xml -->
     </modules>
 
     <dependencies>
