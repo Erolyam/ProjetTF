@@ -1,6 +1,5 @@
 <?php
-require_once str_replace("//", "\\", $_SERVER['DOCUMENT_ROOT']) .
-    '\ProjetTF\Source\controllers\Artwork_controller1.php';
+require_once __DIR__.'../../controllers/Artwork_controller1.php';
 
 
 $u = new \controllers\Artwork_controller1(true);

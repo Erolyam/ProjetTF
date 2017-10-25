@@ -45,7 +45,7 @@ class addArtworkController
             die();//To finish function after header redirection
         } else {
             if (isset($_FILES['photo'])) {
-                $destination = str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/images/artworkPhoto_' . md5($artwork_data['title']);
+                $destination = __DIR__.'../../images/artworkPhoto_' . md5($artwork_data['title']);
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination) || $_FILES["photo"]['name'][0] == '') {
                     if ($_FILES["photo"]['name'][0] == '')
                         $artwork_data['photo'] = "";
