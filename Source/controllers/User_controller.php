@@ -106,11 +106,11 @@ class User_controller
     public function login()
     {
         $user_Login = array();
-        $password = hash('sha256', $_POST['password']);
+        $password = $_POST['password'];
         $username = $_POST['username'];
 
 
-        $password = hash('sha256',$password );
+        //$password = hash('sha256',$password );
         $user_Login = $this->model->login($username, $password);
 
         // echo $idUser;modelArwork

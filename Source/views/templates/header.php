@@ -25,7 +25,7 @@
              <li><a href="../administration/list_users.php">Administration</a></li>
              <?php }  ?>
              <li><a href="../oeuvre/listing.php">Oeuvres</a></li>
-             <li><a href="../oeuvre/listingPerCategory.php">Oeuvres par catégorie</a></li>
+             <li><a href="../artwork/">Oeuvres par catégorie</a></li>
              <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
           </ul>
 

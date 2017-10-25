@@ -6,19 +6,19 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 <body>
 
 <div class="container">
     <h2>Liste des oeuvres</h2>
     <p>Il s'agit de la liste de toutes les oeuvres</p>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="mdb-color darken-3">
+        <tr style="background:#4682B4;color: #fff" class="text-white">
             <th>Titre</th>
             <th>Date</th>
             <th>Description</th>
@@ -36,16 +36,16 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
                 <td>
-                    <p>
-                        <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-primary btn-block">Supprimer oeuvre</a>
-                    </p>
+                  <center> <p>
+                        <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork']?>" class="btn btn-danger">Supprimer oeuvre</a>
+                    </p></center> 
                 </td>
             </tr>
             <?php } ?>
         </tbody>
-    </table>
+    </table><p> <a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a> </p> 
 </div>
-<p> <a href="../Artwork/addArtwork.php" class="btn btn btn-success btn-block">Ajouter une nouvelle oeuvre</a> </p> 
+
 </body>
 </html>
 
