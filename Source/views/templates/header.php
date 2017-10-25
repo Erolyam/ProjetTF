@@ -21,7 +21,9 @@
           <ul class="nav navbar-nav">
              <li><a href="../gallerie/gallerie.php">Galerie</a></li>
              <li><a href="../ranking/ranking.php">Classement</a></li>
+             <?php  if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){   ?>
              <li><a href="../administration/list_users.php">Administration</a></li>
+             <?php }  ?>
              <li><a href="../oeuvre/listing.php">Oeuvres</a></li>
              <li><a href="../oeuvre/listingPerCategory.php">Oeuvres par catégorie</a></li>
              <li><a href="../opCategorie/listeCategorieView.php">Liste des catégories</a></li>
