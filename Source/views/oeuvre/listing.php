@@ -36,7 +36,7 @@ include '../../actions/oeuvre.php'; ?>
                 </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
-                <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
+                <td> <?php echo $oeuvre_data['name'] ?> </td>
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == "ADMIN") { ?>
                 <td>
                     <center><p>

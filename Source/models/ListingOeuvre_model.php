@@ -31,7 +31,7 @@ class listingOeuvre_model
 
     function getAllArtwork()
     {
-        $sql = "SELECT * FROM Artwork";
+        $sql = "SELECT * FROM Artwork JOIN Category WHERE category_idCategory = idCategory ";
         $result = $this->db->query($sql);
         return $result;
     }
