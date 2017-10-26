@@ -16,8 +16,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-
-public class UC2ModificationDesCommentaires {
+public class UC3AjoutDesCommentairesParDesAnonymes {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -40,21 +39,43 @@ public class UC2ModificationDesCommentaires {
   }
 
   @Test
-  public void testUC2ModificationDesCommentaires() throws Exception {
+  public void testUC3AjoutDesCommentairesParDesAnonymes() throws Exception {
     driver.get(baseUrl + "/~m2test5/ProjetTF/Source/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("NumACCENTro #1")).click();
+//    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
+//    driver.findElement(By.linkText("Film")).click();
+//    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
+//    driver.findElement(By.name("AddComment")).click();
+//    driver.findElement(By.linkText("CrACCENTer un compte")).click();
+//    driver.findElement(By.name("name")).clear();
+//    driver.findElement(By.name("name")).sendKeys("Test");
+//    driver.findElement(By.name("lastname")).clear();
+//    driver.findElement(By.name("lastname")).sendKeys("testa");
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("Testtest");
+//    driver.findElement(By.name("email")).clear();
+//    driver.findElement(By.name("email")).sendKeys("test@test.test");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("test0123@");
+//    driver.findElement(By.name("passconf")).clear();
+//    driver.findElement(By.name("passconf")).sendKeys("test0123@");
+//    driver.findElement(By.name("age")).clear();
+//    driver.findElement(By.name("age")).sendKeys("24");
+//    driver.findElement(By.name("photo")).clear();
+//    driver.findElement(By.name("photo")).sendKeys("C:\\Users\\Sammy\\Desktop\\22089571_1527708323934578_2836539044908345682_n.jpg");
+//    driver.findElement(By.xpath("//button[@type='submit']")).click();
 //    driver.findElement(By.linkText("Se connecter")).click();
 //    driver.findElement(By.name("username")).clear();
-//    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
+//    driver.findElement(By.name("username")).sendKeys("Testtest");
 //    driver.findElement(By.name("password")).clear();
-//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+//    driver.findElement(By.name("password")).sendKeys("test0123@");
 //    driver.findElement(By.name("login")).click();
 //    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
 //    driver.findElement(By.linkText("Film")).click();
 //    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
-//    driver.findElement(By.name("bouton")).click();
-//    driver.findElement(By.id("dd4")).clear();
-//    driver.findElement(By.id("dd4")).sendKeys("TestCorrigACCENT");
-//    driver.findElement(By.name("edit")).click();
+//    driver.findElement(By.name("comment")).clear();
+//    driver.findElement(By.name("comment")).sendKeys("Test");
+//    driver.findElement(By.name("AddComment")).click();
   }
 
   @After

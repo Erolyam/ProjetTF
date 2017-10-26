@@ -40,9 +40,9 @@ public class C2AffichageDesClassementsInvit {
 
   @Test
   public void testC2AffichageDesClassementsInvit() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Numéro #1")).click();
-    driver.findElement(By.linkText("Classement")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("NumACCENTro #1")).click();
+//    driver.findElement(By.linkText("Classement")).click();
   }
 
   @After

@@ -16,7 +16,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-public class C1AffichangeDesClassements {
+public class C1AffichageDesClassements {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -39,15 +39,15 @@ public class C1AffichangeDesClassements {
   }
 
   @Test
-  public void testC1AffichangeDesClassements() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("123@456b78");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Classement")).click();
+  public void testC1AffichageDesClassements() throws Exception {
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Classement")).click();
   }
 
   @After

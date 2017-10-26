@@ -43,33 +43,33 @@ System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging
 
   @Test
   public void testAI2() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/users/login.php");
-    driver.findElement(By.linkText("Créer un compte")).click();
-    driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("FailInscription");
-    driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys("Fail@@@@@");
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("Pseudo");
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("yolo@yolo.com");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("r!!!!!");
-    driver.findElement(By.name("passconf")).clear();
-    driver.findElement(By.name("passconf")).sendKeys("r!!!!!!");
-    driver.findElement(By.name("age")).clear();
-    driver.findElement(By.name("age")).sendKeys("25");
-    driver.findElement(By.name("photo")).clear();
-    driver.findElement(By.name("photo")).sendKeys("D:\\Timer Start Event Supprimé.png");
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("T");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("FailInscription");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("yolo");
-    driver.findElement(By.name("login")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/users/login.php");
+//    driver.findElement(By.linkText("CrACCENTer un compte")).click();
+//    driver.findElement(By.name("name")).clear();
+//    driver.findElement(By.name("name")).sendKeys("FailInscription");
+//    driver.findElement(By.name("lastname")).clear();
+//    driver.findElement(By.name("lastname")).sendKeys("Fail@@@@@");
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("Pseudo");
+//    driver.findElement(By.name("email")).clear();
+//    driver.findElement(By.name("email")).sendKeys("yolo@yolo.com");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("r!!!!!");
+//    driver.findElement(By.name("passconf")).clear();
+//    driver.findElement(By.name("passconf")).sendKeys("r!!!!!!");
+//    driver.findElement(By.name("age")).clear();
+//    driver.findElement(By.name("age")).sendKeys("25");
+//    driver.findElement(By.name("photo")).clear();
+//    driver.findElement(By.name("photo")).sendKeys("D:\\Timer Start Event SupprimACCENT.png");
+//    driver.findElement(By.xpath("//button[@type='submit']")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("T");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("FailInscription");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("yolo");
+//    driver.findElement(By.name("login")).click();
   }
 
   @After

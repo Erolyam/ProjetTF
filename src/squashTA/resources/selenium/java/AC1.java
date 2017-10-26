@@ -42,13 +42,13 @@ public class AC1 {
 
   @Test
   public void testAC1() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/users/login.php");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("TestConnexionEchec");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("coucou");
-    driver.findElement(By.name("login")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/users/login.php");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("TestConnexionEchec");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("coucou");
+//    driver.findElement(By.name("login")).click();
   }
 
   @After

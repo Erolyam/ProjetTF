@@ -43,14 +43,14 @@ public class EA1 {
 
   @Test
   public void testEA1() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/users/login.php");
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("AdminTest");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("azertyui");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Oeuvres")).click();
-    driver.findElement(By.xpath("(//a[contains(text(),'Supprimer oeuvre')])[3]")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/users/login.php");
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("AdminTest");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("azertyui");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Oeuvres")).click();
+//    driver.findElement(By.xpath("(//a[contains(text(),'Supprimer oeuvre')])[3]")).click();
   }
 
   @After
