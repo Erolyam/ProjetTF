@@ -12,6 +12,51 @@ use \atoum;
 
 class CustomValidation extends atoum
 {
+
+    public function test_title_check_valid()
+    {
+        $this
+            ->if($v = new \utilities\CustomValidation())
+            ->then
+            ->boolean($v->validate_title('Harry Potter'))
+            ->isIdenticalTo(true);
+        return 0;
+    }
+
+    public function test_title_check_not_valid()
+    {
+        $this
+            ->if($v = new \utilities\CustomValidation())
+            ->then
+            ->boolean($v->validate_title('asdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasaasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasasdasassasascom'))
+            ->isIdenticalTo(false);
+        return 0;
+    }
+
+    public function test_title_description_valid()
+    {
+        $this
+            ->if($v = new \utilities\CustomValidation())
+            ->then
+            ->boolean($v->validate_description('This is a description'))
+            ->isIdenticalTo(true);
+        return 0;
+    }
+
+    public function test_title_description_not_valid()
+    {
+        $description = "asdas";
+        for($i = strlen($description); $i <= 2000; $i=strlen($description)){
+            $description.=$description;
+        }
+        $this
+            ->if($v = new \utilities\CustomValidation())
+            ->then
+            ->boolean($v->validate_description($description))
+            ->isIdenticalTo(false);
+        return 0;
+    }
+
     public function test_email_check_valid()
     {
         $this
