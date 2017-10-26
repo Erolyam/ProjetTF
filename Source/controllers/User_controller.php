@@ -112,7 +112,7 @@ class User_controller
         $password = $_POST['password'];
         $username = $_POST['username'];
 
-        //$password = hash('sha256', $password);
+        $password = hash('sha256', $password);
 
         $user_Login = $this->model->login($username, $password);
 
