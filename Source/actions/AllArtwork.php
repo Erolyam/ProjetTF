@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'../../controllers/Artwork_controller1.php';
 
+//session_start();
 
 
 
@@ -23,6 +24,9 @@ if (isset($_POST['edit'])) {
 }
 if (isset($_GET['cat'])) {
     $u->getAllcategotieByid($_GET['cat']);
+}
+if (isset($_GET['idC'])) {
+    $u->deleteCommaitaire($_GET['idC']);
 }
 $getAllCategorie = $u->getAllcategotie();
 

@@ -69,4 +69,12 @@
         unset($_SESSION['login_failed']);
     }
 
+
+ if (isset($_SESSION['post_deleted'])) {
+        echo '<p class="alert alert-success" name="message">' . $_SESSION['post_deleted'] . '</p>';
+        unset($_SESSION['message']);
+    }
+
+   
+
     ?>
