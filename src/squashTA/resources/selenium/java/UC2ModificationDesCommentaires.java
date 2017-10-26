@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -41,20 +40,20 @@ public class UC2ModificationDesCommentaires {
 
   @Test
   public void testUC2ModificationDesCommentaires() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("123@456b78");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Oeuvres par catégorie")).click();
-    driver.findElement(By.linkText("Film")).click();
-    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
-    driver.findElement(By.name("bouton")).click();
-    driver.findElement(By.id("dd4")).clear();
-    driver.findElement(By.id("dd4")).sendKeys("TestCorrigé");
-    driver.findElement(By.name("edit")).click();
+    driver.get(baseUrl + "/~m2test5/ProjetTF/Source/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
+//    driver.findElement(By.linkText("Film")).click();
+//    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
+//    driver.findElement(By.name("bouton")).click();
+//    driver.findElement(By.id("dd4")).clear();
+//    driver.findElement(By.id("dd4")).sendKeys("TestCorrigACCENT");
+//    driver.findElement(By.name("edit")).click();
   }
 
   @After

@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -40,19 +39,19 @@ public class UO2VoteDesOeuvres {
 
   @Test
   public void testUO2VoteDesOeuvres() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("123@456b78");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Oeuvres par catégorie")).click();
-    driver.findElement(By.linkText("Film")).click();
-    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
-    driver.findElement(By.name("like")).click();
-    driver.findElement(By.linkText("Numéro #1")).click();
-    driver.findElement(By.linkText("Classement")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("FlirkynTest");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
+//    driver.findElement(By.linkText("Film")).click();
+//    driver.findElement(By.xpath("(//a[contains(text(),'Afficher Plus')])[5]")).click();
+//    driver.findElement(By.name("like")).click();
+//    driver.findElement(By.linkText("NumACCENTro #1")).click();
+//    driver.findElement(By.linkText("Classement")).click();
   }
 
   @After

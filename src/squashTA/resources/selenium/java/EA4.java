@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -43,13 +42,13 @@ public class EA4 {
 
   @Test
   public void testEA4() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/users/login.php");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("azertyui");
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("AdminTest");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Administration")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/users/login.php");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("azertyui");
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("AdminTest");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Administration")).click();
   }
 
   @After

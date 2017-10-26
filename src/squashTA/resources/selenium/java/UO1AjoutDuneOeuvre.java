@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -40,22 +39,22 @@ public class UO1AjoutDuneOeuvre {
 
   @Test
   public void testUO1AjoutDuneOeuvre() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Se connecter")).click();
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("Flirkyn");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("123@456b78");
-    driver.findElement(By.name("login")).click();
-    driver.findElement(By.linkText("Oeuvres")).click();
-    driver.findElement(By.linkText("Ajouter une nouvelle oeuvre")).click();
-    driver.findElement(By.name("title")).clear();
-    driver.findElement(By.name("title")).sendKeys("Amélie");
-    driver.findElement(By.id("comment")).clear();
-    driver.findElement(By.id("comment")).sendKeys("Ceci est le résumé du film");
-    driver.findElement(By.name("photo")).clear();
-    driver.findElement(By.name("photo")).sendKeys("C:\\Users\\Sammy\\Pictures\\Touhou\\13891841_1113764798689542_1423157489372229587_n.jpg");
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("Se connecter")).click();
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("Flirkyn");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+//    driver.findElement(By.name("login")).click();
+//    driver.findElement(By.linkText("Oeuvres")).click();
+//    driver.findElement(By.linkText("Ajouter une nouvelle oeuvre")).click();
+//    driver.findElement(By.name("title")).clear();
+//    driver.findElement(By.name("title")).sendKeys("AmACCENTlie");
+//    driver.findElement(By.id("comment")).clear();
+//    driver.findElement(By.id("comment")).sendKeys("Ceci est le rACCENTsumACCENT du film");
+//    driver.findElement(By.name("photo")).clear();
+//    driver.findElement(By.name("photo")).sendKeys("C:\\Users\\Sammy\\Pictures\\Touhou\\13891841_1113764798689542_1423157489372229587_n.jpg");
+//    driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
 
   @After

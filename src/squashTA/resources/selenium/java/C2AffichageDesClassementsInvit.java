@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -40,9 +39,9 @@ public class C2AffichageDesClassementsInvit {
 
   @Test
   public void testC2AffichageDesClassementsInvit() throws Exception {
-    driver.get(baseUrl + "/ProjetTF/Source/views/gallerie/gallerie.php");
-    driver.findElement(By.linkText("Numéro #1")).click();
-    driver.findElement(By.linkText("Classement")).click();
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
+//    driver.findElement(By.linkText("NumACCENTro #1")).click();
+//    driver.findElement(By.linkText("Classement")).click();
   }
 
   @After
