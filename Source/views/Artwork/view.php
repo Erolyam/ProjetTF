@@ -85,7 +85,7 @@ foreach  ( $Artworks as $Artwork) {
 
          ?>
 
-           <form enctype="multipart/form-data" action="../../actions/AllArtwork.php" method="post">
+           <form action="../../actions/AllArtwork.php" method="post">
                     <textarea name="comment"   disabled="true" id="<?php echo 'dd'.$comment['id_comment'] ?>" class="form-control"  ><?php echo $comment['comment'];  ?>
                     </textarea>
       <input type="button"  name="bouton" value="Editer" class="btn btn-warning" onclick="<?php echo 'dd'.$comment['id_comment']; ?>.disabled = false; edit.style.display='inline';">

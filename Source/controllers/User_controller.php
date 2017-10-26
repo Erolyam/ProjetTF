@@ -110,7 +110,7 @@ class User_controller
         $username = $_POST['username'];
 
 
-        //$password = hash('sha256',$password );
+       // $password = hash('sha256',$password );
         $user_Login = $this->model->login($username, $password);
 
         // echo $idUser;modelArwork
