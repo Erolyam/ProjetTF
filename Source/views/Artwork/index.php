@@ -1,7 +1,8 @@
-<?php
+
+<?php include('../templates/header.php');
 include '../../actions/AllArtwork.php';
 include '../../actions/oeuvre.php'; ?>
-<?php include('../templates/header.php'); ?>
+
 
     <div class="row">
     <div class="col-sm-3">

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'../../controllers/Artwork_controller1.php';
 
-session_start();
+//session_start();
 $u = new \controllers\Artwork_controller1(true);
 
 if (isset($_GET['idArtwork'])) {
