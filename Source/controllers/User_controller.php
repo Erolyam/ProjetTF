@@ -140,7 +140,7 @@ class User_controller
             header('Location: ../views/gallerie/gallerie.php');
 
         } else {
-            $_SESSION['login_failed'] = 'Login incorrect ' . $password;
+            $_SESSION['login_failed'] = 'Login incorrect ';
 
             header('Location: ../views/users/login.php');
         }

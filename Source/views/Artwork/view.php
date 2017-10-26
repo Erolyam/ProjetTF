@@ -22,7 +22,7 @@ foreach ($Artworks as $Artwork) {
     <div class="post-body">
 
         <div class="row">
-            <div class="col-sm-6 col-md-5"><img class="img-rounded" src="/Documents/DSC_0355.jpg" width="480"
+            <div class="col-sm-6 col-md-5"><img class="img-rounded" src="<?php echo $Artwork['artwork_picture']; ?>" width="480"
                                                 height="300"></div>
             <div class="col-sm-6 col-md-7"><p><?php echo $Artwork['description']; ?></p></div>
         </div>
