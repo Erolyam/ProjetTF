@@ -60,7 +60,6 @@ class vote_controller
         $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
         $this->modelVote->like($idUser, $Artwork);
-        $_SESSION['message'] = 'success';
         $this->view($Artwork);
     }
 
@@ -70,7 +69,6 @@ class vote_controller
         $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
         $this->modelVote->dislike($idUser, $Artwork);
-        $_SESSION['message'] = 'success';
         $this->view($Artwork);
     }
 
