@@ -1,5 +1,5 @@
-<?php include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/views/templates/header.php';
-include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/actions/oeuvrePerCategory.php'; ?>
+<?php include '../templates/header.php';
+include '../../actions/oeuvrePerCategory.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,7 +26,7 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
         </tr>
         </thead>
         <tbody>
-        <?php foreach  ($listOeuvrePerCategory as $oeuvre_data) { ?>
+        <?php foreach ($listOeuvrePerCategory as $oeuvre_data) { ?>
             <tr>
                 <td> <?php echo $oeuvre_data['title'] ?> </td>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
@@ -34,7 +34,7 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
             </tr>
             <?php
-        }?>
+        } ?>
         </tbody>
     </table>
 </div>
@@ -43,4 +43,4 @@ include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/act
 </html>
 
 
-<?php include('../templates/footer.php');?>
+<?php include('../templates/footer.php'); ?>

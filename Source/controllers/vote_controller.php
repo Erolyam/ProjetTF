@@ -1,4 +1,5 @@
 <?php
+
 namespace controllers;
 class vote_controller
 {
@@ -9,13 +10,14 @@ class vote_controller
     private $validation;
 
     // constructeur; pour le test mode $s est false
-    function __construct($s) {
+    function __construct($s)
+    {
         // connecting to model
-        if($s){
-            include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Artwork_Model1.php';
-            include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Comment_Model.php';
-            include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/utilities/CustomValidation.php';
-            include str_replace ("//", "/", $_SERVER['DOCUMENT_ROOT']).'/ProjetTF/Source/models/Vote_model.php';
+        if ($s) {
+            include __DIR__ . '../../models/Artwork_Model1.php';
+            include __DIR__ . '../../models/Comment_Model.php';
+            include __DIR__ . '../../utilities/CustomValidation.php';
+            include __DIR__ . '../../models/Vote_model.php';
 
         }
         $this->modelComment = new \models\Comment_Model();
@@ -24,14 +26,14 @@ class vote_controller
 
         $this->modelVote = new \models\Vote_model();
 
-        if(!isset($_SESSION['idUser'])){
+        if (!isset($_SESSION['idUser'])) {
             $_SESSION['idUser'] = -1;
         }
     }
 
 
-
-    public function view($idArtwork){
+    public function view($idArtwork)
+    {
 
         $Artwork = $this->modelArtwork->getArtwork($idArtwork);
 
@@ -46,41 +48,45 @@ class vote_controller
         $AllComment = serialize($AllComment);
 
         session_start();
-        $_SESSION['idArtwork'] =$idArtwork;
+        $_SESSION['idArtwork'] = $idArtwork;
 
-        header('Location: ../views/Artwork/view.php?errorMssg='.urlencode($Artwork).'&comments='.urlencode($AllComment));
+        header('Location: ../views/Artwork/view.php?errorMssg=' . urlencode($Artwork) . '&comments=' . urlencode($AllComment));
 
     }
 
-    public function like(){
+    public function like()
+    {
         session_start();
-        $Artwork = $_SESSION['idArtwork'] ;
+        $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
-        $this->modelVote->like($idUser,$Artwork);
+        $this->modelVote->like($idUser, $Artwork);
         $_SESSION['message'] = 'success';
         $this->view($Artwork);
     }
 
-    public function dislike(){
+    public function dislike()
+    {
         session_start();
-        $Artwork = $_SESSION['idArtwork'] ;
+        $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
-        $this->modelVote->dislike($idUser,$Artwork);
+        $this->modelVote->dislike($idUser, $Artwork);
         $_SESSION['message'] = 'success';
         $this->view($Artwork);
     }
 
-    public function exist(){
+    public function exist()
+    {
         session_start();
-        $Artwork = $_SESSION['idArtwork'] ;
+        $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
-        return $this->modelVote->exist($idUser,$Artwork);
+        return $this->modelVote->exist($idUser, $Artwork);
     }
 
-    public function existDetail(){
-        $Artwork = $_SESSION['idArtwork'] ;
+    public function existDetail()
+    {
+        $Artwork = $_SESSION['idArtwork'];
         $idUser = $_SESSION['idUser'];
-        return $this->modelVote->existDetail($idUser,$Artwork);
+        return $this->modelVote->existDetail($idUser, $Artwork);
     }
 }
 

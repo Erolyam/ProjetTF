@@ -7,36 +7,38 @@
  */
 
 namespace models\tests\units;
+
 use \atoum;
+
 class Comment_Model extends atoum
 {
     public function test_get_comments()
     {
         $this
             ->if($m = new \models\Comment_Model())
-             ->and($d=$m->get_comments("2"))
+            ->and($d = $m->get_comments("2"))
             ->then
             ->integer($d->num_rows)
-           // ->isNotNull();
-             ->isNotEqualTo(0);
+            // ->isNotNull();
+            ->isNotEqualTo(0);
     }
 
 
-
- public function test_AddComment()
+    public function test_AddComment()
     {
-         //session_start(); 
-      //  $_SESSION['idUser']='1';
+        //session_start(); 
+        //  $_SESSION['idUser']='1';
         $Comment_data = array();
-        $Comment_data['idArtwork']='1';
-        $Comment_data['comment']='Test Unitaire';
+        $Comment_data['idArtwork'] = 1;
+        $Comment_data['comment'] = 'bilal zitouni';
+        $Comment_data['idUser'] = 1;
         $this
             ->if($m = new \models\Comment_Model())
-             ->and($d=$m->AddComment($Comment_data))
+            ->and($d = $m->AddComment($Comment_data))
             ->then
             ->boolean($d)
             ->isTrue();
     }
 
-    
+
 }

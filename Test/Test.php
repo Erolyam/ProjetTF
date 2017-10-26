@@ -1,10 +1,12 @@
 <?php
 
-abstract class Test extends \atoum\test {
+abstract class Test extends \atoum\test
+{
 
-    public function __construct ( \atoum\score   $score   = null,
-                                  \atoum\locale  $locale  = null,
-                                  \atoum\adapter $adapter = null ) {
+    public function __construct(\atoum\score $score = null,
+                                \atoum\locale $locale = null,
+                                \atoum\adapter $adapter = null)
+    {
 
         $this->setTestNamespace('\\Test');
 

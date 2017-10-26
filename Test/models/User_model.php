@@ -7,7 +7,9 @@
  */
 
 namespace models\tests\units;
+
 use \atoum;
+
 class User_model extends atoum
 {
     public function test_username_exists()
@@ -24,7 +26,7 @@ class User_model extends atoum
     {
         $this
             ->if($m = new \models\User_model())
-            ->and($d=$m->login('bilal', 'bilal'))
+            ->and($d = $m->login('bilal', 'bilal'))
             ->then
             ->integer($d->num_rows)
             ->isEqualTo(1);
@@ -32,5 +34,4 @@ class User_model extends atoum
     }
 
 
-    
 }

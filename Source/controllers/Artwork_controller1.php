@@ -1,4 +1,5 @@
 <?php
+
 namespace controllers;
 class Artwork_controller1
 {
@@ -12,44 +13,42 @@ class Artwork_controller1
     {
         // connecting to model
         if ($s) {
-            require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Artwork_Model1.php';
-          require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\models\Comment_Model.php';
-          require_once str_replace ("//", "\\", $_SERVER['DOCUMENT_ROOT']).'\ProjetTF\Source\utilities\CustomValidation.php';
-
+            require_once __DIR__ . '../../models/Artwork_Model1.php';
+            require_once __DIR__ . '../../models/Comment_Model.php';
+            require_once __DIR__ . '../../utilities/CustomValidation.php';
         }
         $this->modelComment = new \models\Comment_Model();
         $this->modelArtwork = new \models\Artwork_Model1();
-        //  $this->modelCategorie = new \models\opCategorieModel();
         $this->validation = new \utilities\CustomValidation();
-
-       // $this->modelVote = new \models\Vote_model();
-
     }
 
-    public function getAllcategotie(){
+    public function getAllcategotie()
+    {
 
- $getAllCategorie = $this->modelArtwork->getAllCategorie();
+        $getAllCategorie = $this->modelArtwork->getAllCategorie();
 
-        return  $getAllCategorie ;
- }
+        return $getAllCategorie;
+    }
 
 
-      public function getAllcategotieByid($iDcat){
+    public function getAllcategotieByid($iDcat)
+    {
 
-           $Artworkss =   $this->modelArtwork->getAllArtworksByCate($iDcat);
+        $Artworkss = $this->modelArtwork->getAllArtworksByCate($iDcat);
 
-             $Artwork = $Artworkss->fetch_all(MYSQLI_ASSOC);       
-           
-                          $Artworks = serialize($Artwork);
-          if($Artworkss->num_rows >0 ){
+        $Artwork = $Artworkss->fetch_all(MYSQLI_ASSOC);
 
-            header('Location: ../views/Artwork/index.php?errorMssg='.urlencode($Artworks));
+        $Artworks = serialize($Artwork);
+        if ($Artworkss->num_rows > 0) {
+
+            header('Location: ../views/Artwork/index.php?errorMssg=' . urlencode($Artworks));
             return true;
-          }else {
-            return false;}
-   
-        
- }
+        } else {
+            return false;
+        }
+
+
+    }
 
 
     public function view($idArtwork)
@@ -69,20 +68,20 @@ class Artwork_controller1
         $AllComment = serialize($AllComment);
 
         session_start();
-        $_SESSION['idArtwork'] =$idArtwork;
+        $_SESSION['idArtwork'] = $idArtwork;
 
         header('Location: ../views/Artwork/view.php?errorMssg=' . urlencode($Artwork) . '&comments=' . urlencode($AllComment));
 
     }
 
-    public function AddComment()
+    public function AddComment($Comment_data)
     {
 
-        $Comment_data = array();
-        $Comment_data['idArtwork'] = $_POST['idArtwork'];
-        $Comment_data['comment'] = $_POST['comment'];
+       // $Comment_data = array();
+        //$Comment_data['idArtwork'] = $_POST['idArtwork'];
+        //$Comment_data['comment'] = $_POST['comment'];
 
-        $Artwork = $_POST['idArtwork'];
+        $Artwork = $Comment_data['idArtwork'];
 
 
         $this->modelComment->AddComment($Comment_data);
@@ -98,7 +97,7 @@ class Artwork_controller1
 
         session_start();
         $Comment_data = array();
-        $Comment_data['id_comment'] = $_POST['id_comment'];
+        $Comment_data['idComment'] = $_POST['idComment'];
         $Comment_data['comment'] = $_POST['comment'];
 
         $Artwork = $_SESSION['idArtwork'];

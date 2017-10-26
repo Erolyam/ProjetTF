@@ -14,21 +14,25 @@ class Ranking_model
     private $db;
 
     // constructor
-    function __construct() {
+    function __construct()
+    {
         require_once 'DB_Connection.php';
         // connecting to database
         $conn = new \models\DB_Connection();
         $this->db = $conn->connect();
         if (!$this->db) {
-            die("Connection failed: ".mysqli_connect_error());
+            die("Connection failed: " . mysqli_connect_error());
         }
     }
+
     // destructor
-    function __destruct() {
+    function __destruct()
+    {
         $this->db->close();
     }
 
-    function getRankingByCategoryAndTime($idCategory,$days){
+    function getRankingByCategoryAndTime($idCategory, $days)
+    {
         $sql = "SELECT a.idArtwork as idArtwork,a.title as title, (SUM(IF(v.like,1,0)) - SUM(IF(not v.like,1,0))) as votes, SUM(IF(v.like,1,0)) as l, SUM(IF(not v.like,1,0)) as d 
                 FROM Artwork a LEFT OUTER JOIN Vote v 
                 ON v.Artwork_idArtwork = a.idArtwork

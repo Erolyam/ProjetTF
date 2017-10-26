@@ -1,4 +1,4 @@
 <?php
-	header('Location: Source/');
-	exit;
+header('Location: Source/');
+exit;
 ?>

@@ -1,4 +1,4 @@
-<?php include str_replace("//", "/", $_SERVER['DOCUMENT_ROOT']) . '/ProjetTF/Source/views/templates/header.php'; ?>
+<?php include '../templates/header.php'; ?>
     <div class="container">
         <div class="row">
             <div class="error-template">
