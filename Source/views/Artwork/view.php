@@ -96,7 +96,7 @@ foreach ($Artworks as $Artwork) {
                            onclick="<?php echo 'dd' . $comment['idComment']; ?>.disabled = false; edit.style.display='inline';">
 
 
-                    <a class="btn btn-success pull-left" href="/comments/delete/<?php echo $comment['idComment'] ?>">Supprimer</a>
+                    <a class="btn btn-success pull-left" href="../../actions/AllArtwork.php?idC=<?php echo $comment['idComment'] ?>">Supprimer</a>
                     <input type="hidden" name="idComment" value="<?php echo $comment['idComment'] ?>">
                     <input type="submit" value="Modfier" style="display: none;" name="edit" class="btn btn-info">
                 </form>

@@ -61,7 +61,13 @@ class Comment_Model
 
     }
 
+public function deleteComment($idArt)
+    {
+       // session_start();
+        $sql = "delete from  comment  where idComment = " .$idArt;
+        return $this->db->query($sql);
 
+    }
 }
 
 

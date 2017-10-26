@@ -30,7 +30,25 @@ class Artwork_controller1
         return $getAllCategorie;
     }
 
+public function deleteCommaitaire($id){
+     session_start();
+        $Artwork = $_SESSION['idArtwork'];
 
+
+        $this->modelComment->deleteComment($id);
+
+
+
+$_SESSION['post_deleted']='Votre commentaire a été supprimé';
+
+        $this->view($Artwork);
+
+
+
+        return true;
+        }
+
+    
     public function getAllcategotieByid($iDcat)
     {
 
