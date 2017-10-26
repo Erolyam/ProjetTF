@@ -62,6 +62,7 @@ class addArtworkController
                 } else {
                     $_SESSION['error'] = 'Erreur avec l\'image attachée: ';
                     header("Location: ../views/Artwork/addArtwork.php");
+                    die();
                 }
             }
         }

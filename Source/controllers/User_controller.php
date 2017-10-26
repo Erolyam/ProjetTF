@@ -46,16 +46,21 @@ class User_controller
         } else {
             if (isset($_FILES['photo'])) {
                 $destination = __DIR__.'../../images/userPhoto_' . $user_data['username'];
-                if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination)) {
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination)|| $_FILES["photo"]['name'][0] == '') {
                     $user_data['photo'] = "../../images/userPhoto_" . $user_data['username'];
-                    if ($this->model->register($user_data))
+                    if ($this->model->register($user_data)){
                         $_SESSION['message'] = 'Utilisateur ajouté correctement';
-                    else
+                        header("Location: ../views/users/login.php");
+                    }
+                    else{
                         $_SESSION['error'] = 'Erreur de BD: ';
-                    header("Location: ../views/users/login.php");
+                        header("Location: ../views/users/register.php");
+                    }
                     die();//To finish function after header redirection
                 } else {
                     $_SESSION['error'] = 'Erreur avec l\'image attachée: ';
+                    header("Location: ../views/users/register.php");
+                    die();
                 }
             }
         }

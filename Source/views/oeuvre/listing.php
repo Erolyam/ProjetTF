@@ -23,7 +23,9 @@ include '../../actions/oeuvre.php'; ?>
             <th>Date</th>
             <th>Description</th>
             <th>Catégorie</th>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == "ADMIN") { ?>
             <th>Supprimer</th>
+            <?php } ?>
         </tr>
         </thead>
         <tbody>
@@ -35,12 +37,14 @@ include '../../actions/oeuvre.php'; ?>
                 <td> <?php echo $oeuvre_data['date'] ?> </td>
                 <td> <?php echo $oeuvre_data['description'] ?> </td>
                 <td> <?php echo $oeuvre_data['category_idCategory'] ?> </td>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == "ADMIN") { ?>
                 <td>
                     <center><p>
                             <a href="../../actions/oeuvre_delete_action.php?idArtwork=<?php echo $oeuvre_data['idArtwork'] ?>"
                                class="btn btn-danger">Supprimer oeuvre</a>
                         </p></center>
                 </td>
+                <?php } ?>
             </tr>
         <?php } ?>
         </tbody>
