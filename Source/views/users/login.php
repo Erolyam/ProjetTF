@@ -16,7 +16,7 @@ if (isset($_SESSION['role'])) {
                     <input type="password" name="password" class="form-control" placeholder="Enter Password" required
                            autofocus>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="login">Login</button>
+                <button type="submit" class="btn btn-primary btn-block" id="button_login" name="login">Login</button>
             </div>
         </div>
     </form>

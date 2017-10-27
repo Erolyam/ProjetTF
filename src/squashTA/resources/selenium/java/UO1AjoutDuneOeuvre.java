@@ -40,11 +40,11 @@ public class UO1AjoutDuneOeuvre {
   @Test
   public void testUO1AjoutDuneOeuvre() throws Exception {
     driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
-//    driver.findElement(By.linkText("Se connecter")).click();
-//    driver.findElement(By.name("username")).clear();
-//    driver.findElement(By.name("username")).sendKeys("Flirkyn");
-//    driver.findElement(By.name("password")).clear();
-//    driver.findElement(By.name("password")).sendKeys("123@456b78");
+    driver.findElement(By.linkText("Se connecter")).click();
+    driver.findElement(By.name("username")).clear();
+    driver.findElement(By.name("username")).sendKeys("Flirkyn");
+    driver.findElement(By.name("password")).clear();
+    driver.findElement(By.name("password")).sendKeys("123@456b78");
 //    driver.findElement(By.name("login")).click();
 //    driver.findElement(By.linkText("Oeuvres")).click();
 //    driver.findElement(By.linkText("Ajouter une nouvelle oeuvre")).click();

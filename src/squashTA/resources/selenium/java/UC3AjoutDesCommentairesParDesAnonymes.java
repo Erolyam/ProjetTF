@@ -39,7 +39,7 @@ public class UC3AjoutDesCommentairesParDesAnonymes {
 
   @Test
   public void testUC3AjoutDesCommentairesParDesAnonymes() throws Exception {
-    driver.get(baseUrl + "/~m2test5/ProjetTF/Source/views/gallerie/gallerie.php");
+    driver.get(baseUrl + "/~m2test5/prod/views/gallerie/gallerie.php");
 //    driver.findElement(By.linkText("NumACCENTro #1")).click();
 //    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
 //    driver.findElement(By.linkText("Film")).click();

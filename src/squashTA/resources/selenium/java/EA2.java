@@ -44,11 +44,11 @@ public class EA2 {
   @Test
   public void testEA2() throws Exception {
     driver.get(baseUrl + "/~m2test5/prod/views/users/login.php");
-//    driver.findElement(By.linkText("Se connecter")).click();
-//    driver.findElement(By.name("username")).clear();
-//    driver.findElement(By.name("username")).sendKeys("AdminTest");
-//    driver.findElement(By.name("password")).clear();
-//    driver.findElement(By.name("password")).sendKeys("azertyui");
+    driver.findElement(By.linkText("Se connecter")).click();
+    driver.findElement(By.name("username")).clear();
+    driver.findElement(By.name("username")).sendKeys("AdminTest");
+    driver.findElement(By.name("password")).clear();
+    driver.findElement(By.name("password")).sendKeys("azertyui");
 //    driver.findElement(By.name("login")).click();
 //    driver.findElement(By.linkText("Oeuvres par catACCENTgorie")).click();
 //    driver.findElement(By.linkText("DACCENTconnexion")).click();
