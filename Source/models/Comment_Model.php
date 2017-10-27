@@ -42,12 +42,13 @@ class Comment_Model
 
     public function AddComment($Comment_data)
     {
-        session_start();
+        
         $sql = "INSERT INTO Comment(User_idUser,Artwork_idArtwork,comment,date) 
-                         VALUES ('" . $_SESSION['idUser'] . "','" . $Comment_data[idArtwork] .
+                         VALUES ('" . $Comment_data[idUser]. "','" . $Comment_data[idArtwork] .
             "','" . $Comment_data[comment] . "','" . date('Y-m-d H:i:s') .
             "' )";
-        return $this->db->query($sql);
+        $this->db->query($sql);
+        return true;
 
     }
 
@@ -60,7 +61,13 @@ class Comment_Model
 
     }
 
+public function deleteComment($idArt)
+    {
+       // session_start();
+        $sql = "delete from  comment  where idComment = " .$idArt;
+        return $this->db->query($sql);
 
+    }
 }
 
 

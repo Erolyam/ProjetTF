@@ -43,7 +43,7 @@ class Artwork_controller1 extends atoum
             ->isIdenticalTo(false);
 
     }
-    /*
+    
          public function test_addComment()
         {
 
@@ -57,7 +57,7 @@ class Artwork_controller1 extends atoum
                 ->isIdenticalTo(true);
 
         }
-    */
+    
 
 
 }

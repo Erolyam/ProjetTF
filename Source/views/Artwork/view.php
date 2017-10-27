@@ -16,13 +16,13 @@ foreach ($Artworks as $Artwork) {
 
 
     ?>
-
+    <h1><?php echo $Artwork['title'];?></h1>
     <small class="post-date">Ajouté le: <?php echo $Artwork['date']; ?></small><br>
 
     <div class="post-body">
 
         <div class="row">
-            <div class="col-sm-6 col-md-5"><img class="img-rounded" src="/Documents/DSC_0355.jpg" width="480"
+            <div class="col-sm-6 col-md-5"><img class="img-rounded" src="<?php echo $Artwork['artwork_picture']; ?>" width="480"
                                                 height="300"></div>
             <div class="col-sm-6 col-md-7"><p><?php echo $Artwork['description']; ?></p></div>
         </div>
@@ -53,6 +53,7 @@ foreach ($Artworks as $Artwork) {
                 <button class="btn btn-success" name="like" type="submit" disabled="disabled">like</button>
                 <button class="btn btn-danger" name="dislike" type="submit">dislike</button>
             <?php } ?>
+
 
         </form>
         <h3>Ajouter un commentaire</h3>
@@ -95,7 +96,7 @@ foreach ($Artworks as $Artwork) {
                            onclick="<?php echo 'dd' . $comment['idComment']; ?>.disabled = false; edit.style.display='inline';">
 
 
-                    <a class="btn btn-success pull-left" href="/comments/delete/<?php echo $comment['idComment'] ?>">Supprimer</a>
+                    <a class="btn btn-success pull-left" href="../../actions/AllArtwork.php?idC=<?php echo $comment['idComment'] ?>">Supprimer</a>
                     <input type="hidden" name="idComment" value="<?php echo $comment['idComment'] ?>">
                     <input type="submit" value="Modfier" style="display: none;" name="edit" class="btn btn-info">
                 </form>

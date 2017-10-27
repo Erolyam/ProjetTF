@@ -49,8 +49,13 @@
                     <div class="col-md-4 col-sm-6">
                         <a href="../../actions/AllArtwork.php?idArtwork=<?php echo $data['idArtwork']; ?>">
                             <div class="portfolio-thumb">
+                                <?php if($data['artwork_picture']!=""){ ?>
                                 <img src="<?php echo $data['artwork_picture']; ?>" class="img-responsive"
-                                     alt="Portfolio">
+                                     alt="<?php echo $data['title']; ?>">
+                                <?php }else{ ?>
+                                <img src="../../images/noImage.png" class="img-responsive"
+                                     alt="<?php echo $data['title']; ?>">
+                                <?php } ?>
                                 <div class="portfolio-overlay">
                                     <div class="portfolio-item">
                                         <h3><?php echo $data['title'] ?></h3>

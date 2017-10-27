@@ -111,7 +111,9 @@ class User_controller
         $user_Login = array();
         $password = $_POST['password'];
         $username = $_POST['username'];
+
         $password = hash('sha256', $password);
+
         $user_Login = $this->model->login($username, $password);
 
         // echo $idUser;modelArwork
@@ -138,7 +140,7 @@ class User_controller
             header('Location: ../views/gallerie/gallerie.php');
 
         } else {
-            $_SESSION['login_failed'] = 'Login incorrect ' . $password;
+            $_SESSION['login_failed'] = 'Login incorrect ';
 
             header('Location: ../views/users/login.php');
         }

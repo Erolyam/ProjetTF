@@ -15,7 +15,6 @@ class opCategorieController
     // constructeur; pour le test mode $s est false
     function __construct($s)
     {
-        //session_start();
         // connecting to model
         if ($s) {
             require_once __DIR__ . '../../models/opCategorieModel.php';
@@ -30,8 +29,9 @@ class opCategorieController
         $v = $this->validation;
         $category_data = array();
         $category_data['nomCat'] = trim($_POST['nomCat']);
-
+        session_start();
         if ($this->is_form_valid($category_data) === FALSE) {
+            $_SESSION['error'] = 'Erreur dans le nom de la categorie';
             header('Location: ../views/opCategorie/opCategorieView.php');
             die();//To finish function after header redirection
         } else {

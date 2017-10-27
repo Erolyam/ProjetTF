@@ -30,7 +30,25 @@ class Artwork_controller1
         return $getAllCategorie;
     }
 
+public function deleteCommaitaire($id){
+     session_start();
+        $Artwork = $_SESSION['idArtwork'];
 
+
+        $this->modelComment->deleteComment($id);
+
+
+
+$_SESSION['post_deleted']='Votre commentaire a été supprimé';
+
+        $this->view($Artwork);
+
+
+
+        return true;
+        }
+
+    
     public function getAllcategotieByid($iDcat)
     {
 
@@ -74,14 +92,14 @@ class Artwork_controller1
 
     }
 
-    public function AddComment()
+    public function AddComment($Comment_data)
     {
 
-        $Comment_data = array();
-        $Comment_data['idArtwork'] = $_POST['idArtwork'];
-        $Comment_data['comment'] = $_POST['comment'];
+       // $Comment_data = array();
+        //$Comment_data['idArtwork'] = $_POST['idArtwork'];
+        //$Comment_data['comment'] = $_POST['comment'];
 
-        $Artwork = $_POST['idArtwork'];
+        $Artwork = $Comment_data['idArtwork'];
 
 
         $this->modelComment->AddComment($Comment_data);

@@ -29,8 +29,9 @@ class Comment_Model extends atoum
         //session_start(); 
         //  $_SESSION['idUser']='1';
         $Comment_data = array();
-        $Comment_data['idArtwork'] = '1';
-        $Comment_data['comment'] = 'Test Unitaire';
+        $Comment_data['idArtwork'] = 1;
+        $Comment_data['comment'] = 'bilal zitouni';
+        $Comment_data['idUser'] = 1;
         $this
             ->if($m = new \models\Comment_Model())
             ->and($d = $m->AddComment($Comment_data))

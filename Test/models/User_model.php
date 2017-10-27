@@ -22,6 +22,16 @@ class User_model extends atoum
         return 0;
     }
 
+    public function test_email_exists()
+    {
+        $this
+            ->if($m = new \models\User_model())
+            ->then
+            ->boolean($m->check_email_exists('dromeror@unal.edu.co'))
+            ->isIdenticalTo(true);
+        return 0;
+    }
+
     public function test_login()
     {
         $this

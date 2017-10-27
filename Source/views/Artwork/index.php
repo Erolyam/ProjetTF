@@ -1,8 +1,7 @@
-<?php
+
+<?php include('../templates/header.php');
 include '../../actions/AllArtwork.php';
 include '../../actions/oeuvre.php'; ?>
-<?php include('../templates/header.php'); ?>
-
     <div class="row">
     <div class="col-sm-3">
         <div class="sidebar-nav">
@@ -21,11 +20,7 @@ include '../../actions/oeuvre.php'; ?>
                     <ul class="nav navbar-nav">
 
                         <?php foreach ($getAllCategorie as $getAllCategorie) { ?>
-                            <li class="active"><a href="#">Menu Item 1</a></li>
-
                             <li>
-
-
                                 <a href="../../actions/AllArtwork.php?cat=<?php echo $getAllCategorie['idCategory']; ?>"><?php echo $getAllCategorie['name']; ?></a>
                             </li>
                         <?php }
@@ -36,8 +31,6 @@ include '../../actions/oeuvre.php'; ?>
             </div>
         </div>
     </div>
-
-
     <div class="col-sm-9">
         <form enctype="multipart/form-data" action="../../actions/user_register.php" method="post">
             <?php
